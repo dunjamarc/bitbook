@@ -21,7 +21,7 @@ src/
 				PostPage.js
 				CommentsListItem.js
 			peoplePage/
-				People.js
+				PeoplePage.js
 				Search.js
 				PeopleListItem.js
 			profilePage/
