@@ -11,7 +11,7 @@ src/
 
 			welcomePage/
 				WelcomePage.js
-				Login_register.js
+				Login_Register.js
 			feedPage/
 				FeedPage.js
 				ModalNewPost.js
