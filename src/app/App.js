@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import { Switch, Route } from "react-router-dom";
-import WelcomePage from "";
+import WelcomePage from './pages/welcomePage/WelcomePage.js';
+import FeedPage from './pages/feedPage/FeedPage.js';
+import PeoplePage from './pages/peoplePage/PeoplePage.js';
+import ProfilePage from './pages/profilePage/ProfilePage.js';
+import PostPage from './pages/postPage/PostPage.js';
 
 
 class App extends Component {
