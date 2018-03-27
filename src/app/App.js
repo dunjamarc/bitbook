@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import { Switch, Route } from "react-router-dom";
 import WelcomePage from "";
 
@@ -19,6 +20,7 @@ class App extends Component {
 			</React.Fragment>
 		);
 	}
+
 }
 
 export default App;
