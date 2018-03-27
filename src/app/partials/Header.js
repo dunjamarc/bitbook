@@ -6,8 +6,8 @@ const Header = (props) => {
 
     return (
         <nav>
-            <div className="nav-wrapper">
-                <a className="brand-logo">Logo</a>
+            <div className="nav-wrapper container">
+                <a className="brand-logo">Bitbook</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a >Feed</a></li>
                     <li><a >People</a></li>
