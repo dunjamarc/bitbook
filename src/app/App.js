@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import FeedPage from './pages/feedPage/FeedPage';
 
-// import { Switch, Route } from "react-router-dom";
-// import WelcomePage from "";
+
 
 
 class App extends Component {
