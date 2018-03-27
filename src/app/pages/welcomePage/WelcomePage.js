@@ -11,7 +11,6 @@ const WelcomePage = (props) => {
 
     return (
         <React.Fragment>
-            <Header />
             <div className='container row'>
                 <div className="col m6">
                     <h1>BitBook Login</h1>
@@ -23,7 +22,6 @@ const WelcomePage = (props) => {
                 </div>
 
             </div>
-            <Footer />
         </React.Fragment>
     )
 
