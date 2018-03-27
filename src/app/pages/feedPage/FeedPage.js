@@ -8,14 +8,19 @@ import Footer from '../../partials/Footer';
 class FeedPage extends Component {
     render() {
         return (
+            <React.Fragment>
+            <Header/>   
             <div className="container">
-<Header/>    
+ 
 <FeedListImage/>
 <FeedListVideo/>
 <FeedListPost/>
-<Footer/>
+
 
             </div>
+            <Footer/>
+            </React.Fragment>
+
         );
     }
 }
