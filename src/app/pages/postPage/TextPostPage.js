@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import CommentsListItem from './CommentsListItem';
+import postsData from '../../../services/GetData';
 
-class PostPage extends Component {
+class TextPostPage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            postId: 0
+            postId: 0,
+            postInfo: {}
         }
 
 
@@ -16,19 +18,24 @@ class PostPage extends Component {
         this.setState({
             postId: this.props.match.params.id
         })
-
+        this.fetchData();
     } 
 
-
+    fetchData = () => {
+        postsData.getTextPost(this.state.postId)
+        .then(data => {
+            this.setState({
+                postInfo: data
+            })
+        })
+    }
 
 
     render() { 
         return (
         <div className="container">
             <div className='col s12 m7'>
-                <div className="video-container">
-                    <iframe width="853" height="480" src="https://www.youtube.com/embed/tgbNymZ7vqY" frameBorder="0" allowFullScreen></iframe>
-                </div>
+            <p>{this.state.postInfo.text}</p>
             </div>
             <div class="row">
                 <form className="col s12">
@@ -53,4 +60,4 @@ class PostPage extends Component {
     )}
 }
 
-export default PostPage
+export default TextPostPage;
