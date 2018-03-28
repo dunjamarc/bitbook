@@ -22,7 +22,11 @@ class App extends Component {
 					<Route exact path='/' component={FeedPage} />
 					<Route exact path='/people' component={PeoplePage} />
 					<Route exact path='/profile' component={ProfilePage} />
-					<Route path='/feeds/:id' component={PostPage} />
+					<Route path='/feeds' component={PostPage} />
+					<Route path='/feed/:type/:id' component={PostPage} />
+					
+					{/* <Route path='/images/13' component={PostImageDetailsPage} />
+					<Route path='/videos/8791' component={PostVideoDetailsPage} /> */}
 				</Switch>
 				<Footer/>
 			</React.Fragment>

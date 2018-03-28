@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
 import CommentsListItem from './CommentsListItem';
 
-const PostPage = () => {
-    return (
+class PostPage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            postId: 0
+        }
+
+
+    }
+    componentDidMount() {
+        
+        this.setState({
+            postId: this.props.match.params.id
+        })
+
+    } 
+
+
+
+
+    render() { 
+        return (
         <div className="container">
             <div className='col s12 m7'>
                 <div className="video-container">
@@ -29,7 +50,7 @@ const PostPage = () => {
             <CommentsListItem />
         </div>
 
-    )
+    )}
 }
 
 export default PostPage
