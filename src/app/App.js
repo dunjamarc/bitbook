@@ -6,6 +6,8 @@ import FeedPage from './pages/feedPage/FeedPage.js';
 import PeoplePage from './pages/peoplePage/PeoplePage.js';
 import ProfilePage from './pages/profilePage/ProfilePage.js';
 import PostPage from './pages/postPage/PostPage.js';
+import Header from './partials/Header';
+import Footer from './partials/Footer';
 
 
 
@@ -14,6 +16,7 @@ class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
+				<Header/>
 				<Switch>
 					<Route exact path='/' component={WelcomePage} />
 					<Route exact path='/feeds' component={FeedPage} />
@@ -21,6 +24,7 @@ class App extends Component {
 					<Route exact path='/profile' component={ProfilePage} />
 					<Route path='/feeds/:id' component={PostPage} />
 				</Switch>
+				<Footer/>
 			</React.Fragment>
 		);
 	}
