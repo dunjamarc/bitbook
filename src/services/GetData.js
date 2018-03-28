@@ -25,4 +25,6 @@ class GetData {
     }
 }
 
-export default GetData
+const postsData = new GetData();
+
+export default postsData;

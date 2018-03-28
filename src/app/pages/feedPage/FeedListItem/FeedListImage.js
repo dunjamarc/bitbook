@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const FeedListImage = () => {
+const FeedListImage = (props) => {
     return (
         <React.Fragment>
             <Link to={`/feeds/${props.value.id}`}>
