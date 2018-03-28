@@ -11,11 +11,18 @@ src/
 
 			welcomePage/
 				WelcomePage.js
-				Login_Register.js
+				LoginForm.js
+				RegisterForm.js
 			feedPage/
 				FeedPage.js
-				ModalNewPost.js
-				FeedListItem.js
+				ModalNewPost/
+					ModalNewText.js
+					ModalNewImage.js
+					ModalNewVideo.js
+				FeedListItem/
+					FeedListImage.js
+					FeedListPost.js
+					FeedListVideo.js
 				Filter.js
 			postPage/
 				PostPage.js
