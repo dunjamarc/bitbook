@@ -23,19 +23,21 @@ class FeedPage extends Component {
                     <FeedListPost />
                 </div>
 
-                <div id="modal2" class="modal">
-                    <ModalNewPost />
-                </div>
 
-                <div class="fixed-action-btn">
-                    <a class="btn-floating btn-large red">
-                        <i class="large material-icons">+</i>
+                <ModalNewPost />
+
+                <div className="fixed-action-btn">
+                    <a className="btn-floating btn-large red">
+                        <i className="large material-icons">+</i>
                     </a>
                     <ul>
-                        <li><a className="btn-floating red modal-trigger" href="#modal2">
+                        <li><a className="btn-floating yellow modal-trigger" href="#modal2">
+                            <i className="material-icons">Text</i>
+                        </a></li>
+                        <li><a className="btn-floating red modal-trigger" href="#modal3">
                             <i className="material-icons">Image</i>
                         </a></li>
-                        <li><a className="btn-floating yellow modal-trigger" href="#modal3">
+                        <li><a className="btn-floating yellow modal-trigger" href="#modal4">
                             <i className="material-icons">Video</i>
                         </a></li>
                     </ul>

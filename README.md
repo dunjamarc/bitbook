@@ -15,7 +15,10 @@ src/
 				RegisterForm.js
 			feedPage/
 				FeedPage.js
-				ModalNewPost.js
+				ModalNewPost/
+					ModalNewText.js
+					ModalNewImage.js
+					ModalNewVideo.js
 				FeedListItem/
 					FeedListImage.js
 					FeedListPost.js

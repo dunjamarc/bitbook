@@ -11,15 +11,15 @@ class ModalNewPost extends Component {
     render() {
         return (
             <React.Fragment>
-             {/* <div id="modal2" class="modal"> */}
-                <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
+             <div id="modal2" className="modal">
+                <div className="modal-content">
+                    <h4>New post</h4>
+                    <textarea name="info" id="" cols="30" rows="10" placeholder="Post content"></textarea>
                 </div>
-                <div class="modal-footer">
-                    <a href="#/" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                <div className="modal-footer">
+                    <a href="#/" className="modal-action modal-close waves-effect waves-green btn-flat">POST</a>
                 </div>
-            {/* </div> */}
+            </div>
             </React.Fragment >
         )
     }
