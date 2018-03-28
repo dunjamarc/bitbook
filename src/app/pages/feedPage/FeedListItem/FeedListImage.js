@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const FeedListImage = (props) => {
     return (
         <React.Fragment>
-            <Link to={`/feeds/${props.value.id}`}>
+            <Link to={`/feeds/image/${props.value.id}`}>
             <div className='col s12 m7'>
                 <img width='100%' alt='' src={props.value.imageUrl} />
                 <div className="row">
