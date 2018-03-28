@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const FeedListPost = (props) => {
     return (
         <React.Fragment>
-            <Link to={`/feeds/${props.value.id}`}>
+            <Link to={`/feeds/text/${props.value.id}`}>
             <div className="row">
                 <div className="col s12 m12">
                     <div className="card blue-grey darken-1">

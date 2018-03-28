@@ -4,7 +4,7 @@ import FeedListVideo from './FeedListItem/FeedListVideo';
 import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
 import M, { Modal } from "materialize-css";
-import GetData from '../../../services/GetData';
+import postsData from '../../../services/GetData';
 
 
 class FeedPage extends Component {
@@ -23,7 +23,7 @@ class FeedPage extends Component {
         var elem = document.querySelector('.fixed-action-btn');
         var instance = M.FloatingActionButton.init(elem);
 
-        GetData.allData()
+        postsData.allData()
             .then(data => {
                 this.setState({
                     allPosts: data,

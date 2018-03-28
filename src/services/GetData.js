@@ -7,12 +7,19 @@ import TextPost from '../entities/TextPost'
 class GetData {
 
     allData() {
-        return fetch('http://bitbookapi.azurewebsites.net/api/Posts').then((response) => {
-            return response.json()
+        return fetch('http://bitbookapi.azurewebsites.net/api/Posts', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Key': 'bitbook',
+                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
+            },
+            method: 'GET'
         })
-
             .then((response) => {
-                response.map((el) => {
+                return response.json()
+            })
+            .then((response) => {
+                return response.map((el) => {
                     if (el.type == 'video') {
                         return new VideoPost(el);
                     }
@@ -23,6 +30,9 @@ class GetData {
                 })
             })
     }
+
 }
 
-export default GetData
+const postsData = new GetData();
+
+export default postsData;
