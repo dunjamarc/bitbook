@@ -4,13 +4,40 @@ import FeedListVideo from './FeedListItem/FeedListVideo';
 import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
 import M, { Modal } from "materialize-css";
+import GetData from '../../../services/GetData';
 
 
 class FeedPage extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            allPosts: [],
+            videoPosts: [],
+            textPosts: [],
+            imagePosts: []
+        }
+    }
+
     componentDidMount() {
         var elem = document.querySelector('.fixed-action-btn');
         var instance = M.FloatingActionButton.init(elem);
+
+        GetData.allData()
+            .then(data => {
+                this.setState({
+                    allPosts: data,
+                    videoPosts: data.filter(el => {
+                        return el.type === 'video';
+                    }),
+                    textPosts: data.filter(el => {
+                        return el.type === 'text';
+                    }),
+                    imagePosts: data.filter(el => {
+                        return el.type === 'image';
+                    })
+                })
+            })
 
     }
 
@@ -18,9 +45,15 @@ class FeedPage extends Component {
         return (
             <React.Fragment>
                 <div className="container">
-                    <FeedListImage />
-                    <FeedListVideo />
-                    <FeedListPost />
+                    {this.state.allPosts.map(el => {
+                        if (el.type === 'video') {
+                            return <FeedListVideo value={el} key={el.id} />
+                        } else if (el.type === 'image') {
+                            return <FeedListImage value={el} key={el.id} />
+                        } else {
+                            return <FeedListPost value={el} key={el.id} />
+                        }
+                    })}
                 </div>
 
 
