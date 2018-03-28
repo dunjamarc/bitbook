@@ -18,8 +18,8 @@ class App extends Component {
 			<React.Fragment>
 				<Header/>
 				<Switch>
-					<Route exact path='/' component={WelcomePage} />
-					<Route exact path='/feeds' component={FeedPage} />
+					<Route exact path='/login' component={WelcomePage} />
+					<Route exact path='/' component={FeedPage} />
 					<Route exact path='/people' component={PeoplePage} />
 					<Route exact path='/profile' component={ProfilePage} />
 					<Route path='/feeds/:id' component={PostPage} />
