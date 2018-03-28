@@ -23,13 +23,13 @@ src/
 					FeedListImage.js
 					FeedListPost.js
 					FeedListVideo.js
-				Filter.js
+				Filter.js              ---
 			postPage/
 				PostPage.js
 				CommentsListItem.js
 			peoplePage/
 				PeoplePage.js
-				Search.js
+				Search.js              ---
 				PeopleListItem.js
 			profilePage/
 				ProfilePage.js
