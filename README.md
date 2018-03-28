@@ -25,7 +25,9 @@ src/
 					FeedListVideo.js
 				Filter.js              ---
 			postPage/
-				PostPage.js
+				TextPostPage.js
+				ImagePostPage.js
+				VideoPostPage.js
 				CommentsListItem.js
 			peoplePage/
 				PeoplePage.js

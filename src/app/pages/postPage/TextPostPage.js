@@ -7,29 +7,20 @@ class TextPostPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            postId: 0,
             postInfo: {}
         }
 
-
     }
+
     componentDidMount() {
         
-        this.setState({
-            postId: this.props.match.params.id
-        })
-        this.fetchData();
-    } 
-
-    fetchData = () => {
-        postsData.getTextPost(this.state.postId)
+        postsData.getTextPost(this.props.match.params.id)
         .then(data => {
             this.setState({
                 postInfo: data
             })
         })
-    }
-
+    } 
 
     render() { 
         return (

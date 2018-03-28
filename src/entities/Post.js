@@ -9,6 +9,7 @@ class Post  {
         this.type = Obj.type
         this.commentsNum = Obj.commentsNum
     }
+    
 }
 
 export default Post
