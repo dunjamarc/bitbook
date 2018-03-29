@@ -8,7 +8,8 @@ class ModalNewPost extends Component {
         super(props);
         this.state = {
             postValue: '',
-            errorClass: 'hidden'
+            errorClass: 'hidden',
+            modalClose: 'modal-close'
         }
     }
 
@@ -59,13 +60,14 @@ class ModalNewPost extends Component {
             const obj = { videoUrl: this.state.postValue };
             this.handleClick('Video', obj);
             this.setState({
-                errorClass: 'hidden'
+                errorClass: 'hidden',
+                modalClose: 'modal-close'
             })
         } else {
-            event.stopPropagation();
             this.setState({
                 errorClass: 'error',
-                postValue: ''
+                postValue: '',
+                modalClose: ''
             })
         }
     }
@@ -90,7 +92,7 @@ class ModalNewPost extends Component {
                         <input type='text' value={this.state.postValue} onChange={this.handleChange} placeholder="Image url" />
                     </div>
                     <div className="modal-footer">
-                        <a href="#/" className="modal-action modal-close waves-effect waves-green btn-flat" onClick={this.handleClickImage}>POST</a>
+                        <a className="modal-action modal-close waves-effect waves-green btn-flat" onClick={this.handleClickImage}>POST</a>
                     </div>
                 </div>
 
@@ -101,7 +103,7 @@ class ModalNewPost extends Component {
                         <p className={this.state.errorClass}>Input must be YouTube video url</p>
                     </div>
                     <div className="modal-footer">
-                        <a href="#/" className="modal-action modal-close waves-effect waves-green btn-flat" onClick={this.handleClickVideo}>POST</a>
+                        <a className={this.state.modalClose} className="modal-action waves-effect waves-green btn-flat" onClick={this.handleClickVideo}>POST</a>
                     </div>
                 </div>
             </React.Fragment >
