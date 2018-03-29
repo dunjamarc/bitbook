@@ -20,7 +20,7 @@ class ModalUpdateProfile extends Component {
                         </div>
                     </div>
                     <input type="text" placeholder="Full Name" />
-                    <textarea nameName="info" id="" cols="30" rows="10" placeholder="User description and all text that describes user"></textarea>
+                    <textarea name="info" id="" cols="30" rows="10" placeholder="User description and all text that describes user"></textarea>
                 </div>
                 <div className="modal-footer">
                     <a href="#/profile" className="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
