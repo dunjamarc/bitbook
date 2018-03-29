@@ -5,7 +5,7 @@ const CommentsListItem = (props) => {
 
         <div className="col s12 m8 offset-m2 l6 offset-l3">
             <div className="card-panel grey lighten-5 z-depth-1">
-                <div className="row valign-wrapper">
+                <div className="row align-wrapper">
                     <div className="col s2">
                         <img src="http://materializecss.com/images/yuna.jpg" alt="" className="circle responsive-img" />
                     </div>
