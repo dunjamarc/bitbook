@@ -23,10 +23,15 @@ class FeedPage extends Component {
         var elem = document.querySelector('.fixed-action-btn');
         var instance = M.FloatingActionButton.init(elem);
 
+        this.fetchPosts();
+
+    }
+
+    fetchPosts = () => {
         postsData.allData()
             .then(data => {
                 this.setState({
-                    allPosts: data,
+                    allPosts: data.slice(0,10),
                     videoPosts: data.filter(el => {
                         return el.type === 'video';
                     }),
@@ -38,7 +43,6 @@ class FeedPage extends Component {
                     })
                 })
             })
-
     }
 
     render() {
@@ -56,21 +60,20 @@ class FeedPage extends Component {
                     })}
                 </div>
 
-
-                <ModalNewPost />
+                <ModalNewPost value={this.fetchPosts} />
 
                 <div className="fixed-action-btn">
                     <a className="btn-floating btn-large red">
                         <i className="large material-icons">+</i>
                     </a>
                     <ul>
-                        <li><a className="btn-floating yellow modal-trigger" href="#modal2">
+                        <li><a className="btn-floating blue modal-trigger" href="#modal2">
                             <i className="material-icons">Text</i>
                         </a></li>
-                        <li><a className="btn-floating red modal-trigger" href="#modal3">
+                        <li><a className="btn-floating green modal-trigger" href="#modal3">
                             <i className="material-icons">Image</i>
                         </a></li>
-                        <li><a className="btn-floating yellow modal-trigger" href="#modal4">
+                        <li><a className="btn-floating red modal-trigger" href="#modal4">
                             <i className="material-icons">Video</i>
                         </a></li>
                     </ul>
