@@ -44,7 +44,7 @@ class GetData {
                 return response.json()
             })
             .then((response) => {
-                return response
+                return new TextPost(response);
             })
     }
 
@@ -61,7 +61,7 @@ class GetData {
                 return response.json()
             })
             .then((response) => {
-                return response
+                return new ImagePost(response);
             })
     }
 
@@ -78,7 +78,7 @@ class GetData {
                 return response.json()
             })
             .then((response) => {
-                return response
+                return new VideoPost(response);
             })
     }
 
