@@ -34,23 +34,20 @@ class TextPostPage extends Component {
         console.log(this.state.commentInfo)
         return (
 
-        <div className="container">
-            <div className='col s12 m7'>
-              <p>{this.state.postInfo.text}</p>
-            </div>
-            <div class="row">
-              <AddComment />
-
-         
-
-             </div>
+            <div className="container">
+                <div className='col s12 m7'>
+                    <p>{this.state.postInfo.text}</p>
+                </div>
+                <div class="row">
+                    <AddComment />
+                </div>
                 {
                     this.state.commentInfo.map((el, i) => {
                         return <CommentsListItem authorName={el.authorName} body={el.body} key={el.id} />
                     })
                 }
 
-         </div>
+            </div>
 
         )
     }
