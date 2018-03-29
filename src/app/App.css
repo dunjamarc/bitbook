@@ -8,3 +8,11 @@ footer {
 footer p {
   line-height: 50px;
 }
+
+.error {
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
+}

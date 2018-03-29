@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CommentsListItem from './CommentsListItem';
-import postsData from '../../../services/GetData';
+import postsData from '../../../services/postService';
 import AddComment from './AddComment';
 
 class VideoPostPage extends Component {
