@@ -73,6 +73,7 @@ class ImagePostPage extends Component {
 
     render() {
         return (
+
             <React.Fragment>
                 <div className="container">
                     <div className='col s12 m7'>
@@ -105,6 +106,7 @@ class ImagePostPage extends Component {
             </React.Fragment>
         )
     }
+
 }
 
 export default ImagePostPage;
