@@ -4,7 +4,7 @@ import ImagePost from '../entities/ImagePost'
 import TextPost from '../entities/TextPost'
 
 
-class GetData {
+class PostService {
 
     allData() {
         return fetch('http://bitbookapi.azurewebsites.net/api/Posts', {
@@ -82,25 +82,10 @@ class GetData {
             })
     }
 
-    getCommentByPostId(commentId) {
-        return fetch(`http://bitbookapi.azurewebsites.net/api/Comments?postId=${commentId}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
-            method: 'GET'
-        })
-        .then((response)=>{
-            return response.json()
-        })
-        .then((response)=>{
-            return response
-        })
-    }
+    
 
 }
 
-const postsData = new GetData();
+const postsData = new PostService();
 
 export default postsData;
