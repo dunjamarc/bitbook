@@ -4,7 +4,7 @@ import FeedListVideo from './FeedListItem/FeedListVideo';
 import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
 import M, { Modal } from "materialize-css";
-import postsData from '../../../services/GetData';
+import postsData from '../../../services/postService';
 
 
 class FeedPage extends Component {
