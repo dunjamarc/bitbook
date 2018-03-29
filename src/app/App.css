@@ -11,6 +11,7 @@ footer p {
 
 .error {
   color: red;
+  font-size: 12px;
 }
 
 .hidden {

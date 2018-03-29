@@ -24,8 +24,13 @@ class ModalNewPost extends Component {
         var instance = M.Modal.init(modal4);
     }
 
+    imageLinkValidation = (url) =>{
+        let p = /(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?/;
+        return (url.match(p)) ? true : false;
+    }
+
     videoLinkValidation = (url) => {
-        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        let p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
         return (url.match(p)) ? true : false;
     }
 
@@ -40,7 +45,8 @@ class ModalNewPost extends Component {
             .then(() => {
                 this.props.value();
                 this.setState({
-                    postValue: ''
+                    postValue: '',
+                    modalClose: 'modal-close'
                 })
             })
     }
@@ -51,8 +57,21 @@ class ModalNewPost extends Component {
     }
 
     handleClickImage = (event) => {
-        const obj = { imageUrl: this.state.postValue };
-        this.handleClick('Image', obj);
+        if (this.imageLinkValidation(this.state.postValue)) {
+            const obj = { imageUrl: this.state.postValue };
+            this.handleClick('Image', obj);
+            this.setState({
+                errorClass: 'hidden'
+            })
+            let modalImage = document.querySelector('#modal3');
+            let instance = M.Modal.getInstance(modalImage);
+            instance.close();
+        } else {
+            this.setState({
+                errorClass: 'error',
+                modalClose: ''
+            })
+        }
     }
 
     handleClickVideo = (event) => {
@@ -61,12 +80,13 @@ class ModalNewPost extends Component {
             this.handleClick('Video', obj);
             this.setState({
                 errorClass: 'hidden',
-                modalClose: 'modal-close'
             })
+            let modalVideo = document.querySelector('#modal4');
+            let instance = M.Modal.getInstance(modalVideo);
+            instance.close();
         } else {
             this.setState({
                 errorClass: 'error',
-                postValue: '',
                 modalClose: ''
             })
         }
@@ -90,9 +110,11 @@ class ModalNewPost extends Component {
                     <div className="modal-content">
                         <h4>New image post</h4>
                         <input type='text' value={this.state.postValue} onChange={this.handleChange} placeholder="Image url" />
+                        <p className={this.state.errorClass}>Input must be valid image url</p>
+
                     </div>
                     <div className="modal-footer">
-                        <a className="modal-action modal-close waves-effect waves-green btn-flat" onClick={this.handleClickImage}>POST</a>
+                        <a className={this.state.modalClose} className="modal-action waves-effect waves-green btn-flat" onClick={this.handleClickImage}>POST</a>
                     </div>
                 </div>
 
