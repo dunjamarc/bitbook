@@ -24,6 +24,7 @@ class App extends Component {
 					<Route exact path='/' component={FeedPage} />
 					<Route exact path='/people' component={PeoplePage} />
 					<Route exact path='/profile' component={ProfilePage} />
+					<Route path='/people/:id' component={ProfilePage} />
 					<Route path='/feeds/text/:id' component={TextPostPage} />
 					<Route path='/feeds/image/:id' component={ImagePostPage} />
 					<Route path='/feeds/video/:id' component={VideoPostPage} />
