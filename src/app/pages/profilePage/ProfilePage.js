@@ -31,10 +31,11 @@ class ProfilePage extends Component {
     }
 
     render() {
+       
         return (
             <React.Fragment>
                 <div id="modal1" className="modal">
-                    <ModalUpdateProfile value={this.fetchData}/>
+                    <ModalUpdateProfile value={this.fetchData} profile={this.state.profile}/>
                 </div>
                 <div className='container center-align'>
                 

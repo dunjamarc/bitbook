@@ -8,15 +8,18 @@ class ModalUpdateProfile extends Component {
         this.state = {
             nameInput: '',
             descriptionInput: '',
-            avatarUrl: ''
+            avatarUrl: 'https://findd.com.my/include/img/user_dashboard/profile.png'
         };
     }
 
-    // fetchData()
-
-    // componentDidMount() {
-
-    // }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            nameInput: nextProps.profile.name,
+            avatarUrl: nextProps.profile.avatarUrl,
+            descriptionInput: nextProps.profile.about
+        });
+        
+    }
 
     handleImageChange = (event) => {
         this.setState({
@@ -35,15 +38,19 @@ class ModalUpdateProfile extends Component {
             descriptionInput: event.target.value
         })
     }
+    handleImgUrlChange = (event) => {
+        this.setState({
+            avatarUrl: event.target.value
+        })
+    }
 
     handleClick = (event) => {
         const obj = {
             name: this.state.nameInput,
             about: this.state.descriptionInput,
-            avatarUrl: this.state.avatarUrl,
-            // email: 'nesto@gmail.com',
-            // aboutShort: 'about',
-            // userId: 391
+            aboutShort: `${this.state.descriptionInput.slice(0, 50)}...`,
+            email: 'mail',
+            avatarUrl: this.state.avatarUrl
         };
         userService.updateProfile(`http://bitbookapi.azurewebsites.net/api/Profiles`, obj)
             .then((data) => {
@@ -62,8 +69,8 @@ class ModalUpdateProfile extends Component {
             <form action="#">
                 <div className="modal-content">
                     <h4>Update profile</h4>
-                    <img src="https://findd.com.my/include/img/user_dashboard/profile.png" alt="profile-image" />
-
+                    <img src={this.state.avatarUrl} alt="profile-image" />
+                    
                     <div className="file-field input-field">
                         <div className="btn">
                             <span>UPLOAD PHOTO</span>
@@ -73,6 +80,8 @@ class ModalUpdateProfile extends Component {
                             <input className="file-path" type="text" onChange={this.handleImageChange}/>
                         </div>
                     </div>
+
+                    <input type="text" placeholder="Image url" onChange={this.handleImgUrlChange} value={this.state.imageUrlInput} />
 
                     <input type="text" placeholder="Full Name" onChange={this.handleNameChange} value={this.state.nameInput} />
 
