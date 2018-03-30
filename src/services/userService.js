@@ -1,4 +1,6 @@
 import React from 'react'
+import User from '../entities/User'
+import UserDetail from '../entities/UserDetail'
 
 class userServices {
     getUsers() {
@@ -35,7 +37,7 @@ class userServices {
         })
     }
 
-    getUserDetail() {
+    getUserDetail(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/users/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
