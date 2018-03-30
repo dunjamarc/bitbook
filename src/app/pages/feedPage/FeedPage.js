@@ -51,11 +51,11 @@ class FeedPage extends Component {
                 <div className="container">
                     {this.state.allPosts.map(el => {
                         if (el.type === 'video') {
-                            return <FeedListVideo value={el} key={el.id} />
+                            return <FeedListVideo value={el} key={el.id} commentsNum={el.commentsNum}/>
                         } else if (el.type === 'image') {
-                            return <FeedListImage value={el} key={el.id} />
+                            return <FeedListImage value={el} key={el.id} commentsNum={el.commentsNum}/>
                         } else {
-                            return <FeedListPost value={el} key={el.id} />
+                            return <FeedListPost value={el} key={el.id} commentsNum={el.commentsNum}/>
                         }
                     })}
                 </div>

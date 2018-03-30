@@ -11,7 +11,7 @@ const FeedListVideo = (props) => {
                 </div>
                 <div className="row">
                     <p className="col s6 m3 center-align">Video post</p>
-                    <p className="col s6 m3 offset-m6 center-align">15 Comments</p>
+                    <p className="col s6 m3 offset-m6 center-align">{props.commentsNum} comments</p>
                 </div>
             </div>
             </Link>

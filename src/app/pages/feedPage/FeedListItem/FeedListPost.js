@@ -11,7 +11,7 @@ const FeedListPost = (props) => {
                         <div className="card-content white-text center-align">
                             <p>{props.value.text}</p>
                             <p className="col s6 m3 center-align">Text post</p>
-                            <p className="col s6 m3 offset-m6 center-align">15 Comments</p>
+                            <p className="col s6 m3 offset-m6 center-align">{props.commentsNum} comments</p>
                         </div>
                     </div>
                 </div>
