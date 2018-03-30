@@ -11,18 +11,24 @@ class PeoplePage extends Component {
         }
     }
     componentDidMount() {
-
+        userService.getUsers().then((response) => {
+            this.setState({
+                usersData: response
+            })
+        })
     }
     render() {
+        console.log(this.state.usersData)
         return (
             <React.Fragment>
                 <div className="container">
                     <div className="input-field col s9">
                         <i class="material-icons prefix">search</i><input id="icon_prefix" type="text" placeholder="Search" className="validate" />
                     </div>
-                    <Link to='/profile'><PeopleListItem /></Link>
-                    <Link to='/profile'><PeopleListItem /></Link>
-                    <Link to='/profile'><PeopleListItem /></Link>
+                    {this.state.usersData.map((el) => {
+                        return <Link to='/profile'><PeopleListItem name={el.name} avatarUrl={el.avatarUrl} aboutShort={el.aboutShort} lastPostDate={el.lastPostDate} key={el.id} /></Link>
+                    })
+                    }
                 </div>
             </React.Fragment>
         );

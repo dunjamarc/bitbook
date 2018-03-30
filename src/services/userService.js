@@ -12,12 +12,14 @@ class userServices {
             },
             method: 'GET'
         })
-        .then((response)=>{
-            return response.json()
-        })
-        .then((response)=>{
-            return new User(response)
-        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((response) => {
+                return response.map((el) => {
+                    return new User(el)
+                })
+            })
     }
 
     getProfile() {
@@ -29,12 +31,12 @@ class userServices {
             },
             method: 'GET'
         })
-        .then((response)=>{
-            return response.json()
-        })
-        .then((response)=>{
-            return new UserDetail(response)
-        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((response) => {
+                return new UserDetail(response)
+            })
     }
 
     getUserDetail(id) {
@@ -46,12 +48,12 @@ class userServices {
             },
             method: 'GET'
         })
-        .then((response)=>{
-            return response.json()
-        })
-        .then((response)=>{
-            return new UserDetail(response)
-        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((response) => {
+                return new UserDetail(response)
+            })
     }
 }
 
