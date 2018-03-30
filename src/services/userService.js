@@ -1,0 +1,57 @@
+import React from 'react'
+
+class userServices {
+    getUsers() {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/users`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Key': 'bitbook',
+                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
+            },
+            method: 'GET'
+        })
+        .then((response)=>{
+            return response.json()
+        })
+        .then((response)=>{
+            return new User(response)
+        })
+    }
+
+    getProfile() {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/profile`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Key': 'bitbook',
+                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
+            },
+            method: 'GET'
+        })
+        .then((response)=>{
+            return response.json()
+        })
+        .then((response)=>{
+            return new UserDetail(response)
+        })
+    }
+
+    getUserDetail() {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/users/${id}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Key': 'bitbook',
+                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
+            },
+            method: 'GET'
+        })
+        .then((response)=>{
+            return response.json()
+        })
+        .then((response)=>{
+            return new UserDetail(response)
+        })
+    }
+}
+
+const userService = new userServices()
+export default userService
