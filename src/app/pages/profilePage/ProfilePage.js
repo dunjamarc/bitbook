@@ -10,14 +10,16 @@ class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            profile: {}
         }
     }
 
-
-    fetchData() {
+    fetchData = () => {
         userService.getProfile()
             .then(data => {
-                this.setState(data)
+                this.setState({
+                    profile: data
+                })
             })
     }
 
@@ -28,37 +30,31 @@ class ProfilePage extends Component {
         this.fetchData();
     }
 
-
-
-
     render() {
         return (
             <React.Fragment>
-
-
                 <div id="modal1" className="modal">
                     <ModalUpdateProfile />
                 </div>
-
-
                 <div className='container center-align'>
-                    <img src={this.state.user.avatarUrl} />
-                    <h2>{this.state.name}</h2>
+                
+                    <img id="avatar" src={this.state.profile.avatarUrl === '' ? 'https://findd.com.my/include/img/user_dashboard/profile.png' : this.state.profile.avatarUrl} />
+                    <h2>{this.state.profile.name}</h2>
                     <a className="modal-trigger" href="#modal1">Edit profile</a>
-                    <p className='user-description'>{this.state.user.about}</p>
+                    <p className='user-description'>{this.state.profile.about}</p>
                     <div className="chip">
                         <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
-                        {this.stateuser.postsCount}Posts
+                        {this.state.profile.postsCount}Posts
                 </div>
                     <div className="chip">
                         <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
-                        {this.stateuser.user.commentsCount}Comments
+                        {this.state.profile.commentsCount}Comments
                 </div>
                 </div>
             </React.Fragment>
         )
-
     }
+
 }
 
 export default ProfilePage;
