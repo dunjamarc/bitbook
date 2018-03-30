@@ -34,7 +34,7 @@ class ProfilePage extends Component {
         return (
             <React.Fragment>
                 <div id="modal1" className="modal">
-                    <ModalUpdateProfile />
+                    <ModalUpdateProfile value={this.fetchData}/>
                 </div>
                 <div className='container center-align'>
                 
@@ -44,11 +44,11 @@ class ProfilePage extends Component {
                     <p className='user-description'>{this.state.profile.about}</p>
                     <div className="chip">
                         <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
-                        {this.state.profile.postsCount}Posts
+                        {this.state.profile.postsCount} Posts
                 </div>
                     <div className="chip">
                         <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
-                        {this.state.profile.commentsCount}Comments
+                        {this.state.profile.commentsCount} Comments
                 </div>
                 </div>
             </React.Fragment>
