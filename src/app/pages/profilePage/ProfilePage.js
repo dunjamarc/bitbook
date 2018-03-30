@@ -10,38 +10,59 @@ class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profile: {}
+            profile: {},
+            postId: 0
         }
-    }
-
-    fetchData = () => {
-        userService.getProfile()
-            .then(data => {
-                this.setState({
-                    profile: data
-                })
-            })
     }
 
     componentDidMount() {
         var elem = document.querySelector('.modal');
         var instance = M.Modal.init(elem);
+        this.setState({postId: this.props.match.params.id});
+        this.fetchData();
+    }
 
+    fetchData = () => {
+        if (this.props.match.params.id === undefined) {
+
+            userService.getProfile()
+                .then(data => {
+                    this.setState({
+                        profile: data,
+                        myProfile: true,
+                    })
+                })
+        } else {
+            console.log(this.props.match.params.id);
+
+            userService.getUserDetail(this.props.match.params.id)     
+                .then(data => {
+                    this.setState({
+                        profile: data,
+                        myProfile: false,
+                    })
+                })
+        }
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({postId: nextProps.match.params.id});
         this.fetchData();
     }
 
     render() {
-       
+
         return (
             <React.Fragment>
                 <div id="modal1" className="modal">
-                    <ModalUpdateProfile value={this.fetchData} profile={this.state.profile}/>
+                    <ModalUpdateProfile value={this.fetchData} profile={this.state.profile} />
                 </div>
                 <div className='container center-align'>
-                
+
                     <img id="avatar" src={this.state.profile.avatarUrl === '' ? 'https://findd.com.my/include/img/user_dashboard/profile.png' : this.state.profile.avatarUrl} />
                     <h2>{this.state.profile.name}</h2>
-                    <a className="modal-trigger" href="#modal1">Edit profile</a>
+                    {this.state.myProfile ? <a className="modal-trigger" href="#modal1">Edit profile</a> : ''}
                     <p className='user-description'>{this.state.profile.about}</p>
                     <div className="chip">
                         <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
