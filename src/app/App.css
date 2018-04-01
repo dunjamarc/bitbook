@@ -1,12 +1,37 @@
+/* Aqua Splash Color Palette */
+
+#root, html, body {
+  height: 100%;
+  margin: 0;
+}
+#wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+#push {
+  height: 50px;
+}
+
+.container {
+  max-width: 960px;
+}
+
+nav {
+  margin-bottom: 30px;
+  background-color: #549f91;
+}
+
 footer {
   text-align: center;
   height: 50px;
-  background-color: #ee6e73;
+  /*background-color: #ee6e73;*/
+  background-color: #549f91;
   color: #fff;
 }
 
 footer p {
   line-height: 50px;
+  margin: 0;
 }
 
 .error {
@@ -21,4 +46,38 @@ footer p {
 #avatar {
   width: 270px;
   height: auto;
+}
+
+a {
+  color: #549f91;
+}
+
+.card, .image-post, .video-post {
+  background-color: #549f9134;
+}
+
+.card p, .card h5, .image-post p, .video-post p {
+  color: #498c92 !important;
+}
+
+.text-post {
+  box-shadow: 0 0 7px darkgray;
+  padding: 15px 10px;
+}
+
+.author-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-panel {
+  padding: 15px;
+}
+
+.align-wrapper {
+  margin-bottom: 5px;
+}
+
+.image-post {
+  max-width: 100%;
 }

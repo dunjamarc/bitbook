@@ -79,20 +79,20 @@ class VideoPostPage extends Component {
                 </div>
 
                 <div className="container">
-                <div class="row">
-                    <div className="col s12">
-                        <div className="row align-center">
-                            <div className="input-field col s9">
-                                <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
-                                <label htmlFor="icon_prefix">Add comment</label>
-                            </div>
-                            <div className="input-field col s3 ">
-                                <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
-                                    <i className="large material-icons">send</i>
-                                </button>
+                    <div class="row">
+                        <div className="col s12">
+                            <div className="row align-center">
+                                <div className="input-field col s9">
+                                    <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
+                                    <label htmlFor="icon_prefix">Add comment</label>
+                                </div>
+                                <div className="input-field col s3 ">
+                                    <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
+                                        <i className="large material-icons">send</i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 

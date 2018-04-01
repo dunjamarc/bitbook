@@ -69,7 +69,7 @@ class ImagePostPage extends Component {
             <React.Fragment>
                 <div className="container">
                     <div className='col s12 m7'>
-                        <img src={this.state.postInfo.imageUrl} alt='post-image' />
+                        <img className="image-post" src={this.state.postInfo.imageUrl} alt='post-image' />
                     </div>
                     <div class="row">
                         <div className="col s12">

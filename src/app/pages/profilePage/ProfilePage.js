@@ -67,11 +67,11 @@ class ProfilePage extends Component {
                     {this.state.myProfile ? <a className="modal-trigger" href="#modal1">Edit profile</a> : ''}
                     <p className='user-description'>{this.state.profile.about}</p>
                     <div className="chip">
-                        <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
+                        <img src="https://www.shareicon.net/data/512x512/2017/02/09/878601_check_512x512.png" alt="Contact Person" />
                         {this.state.profile.postsCount} Posts
                 </div>
                     <div className="chip">
-                        <img src="https://www.shareicon.net/data/256x256/2015/08/20/87930_circular-modern-o-orkut-red_512x512.png" alt="Contact Person" />
+                        <img src="https://www.shareicon.net/data/512x512/2017/02/09/878601_check_512x512.png" alt="Contact Person" />
                         {this.state.profile.commentsCount} Comments
                 </div>
                 </div>

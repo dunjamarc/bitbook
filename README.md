@@ -29,13 +29,13 @@ src/
 				CommentsListItem.js    - author img
 			peoplePage/
 				PeoplePage.js
-				PeopleListItem.js
+				PeopleListItem.js      - last post time
 			profilePage/
 				ProfilePage.js         - navigation
-				ModalUpdateProfile.js
+				ModalUpdateProfile.js  
 
 		partials/
-			Header.js
+			Header.js                  ...
 			Footer.js
 
 	entities/
