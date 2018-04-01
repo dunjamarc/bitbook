@@ -69,10 +69,10 @@ class TextPostPage extends Component {
         return (
             <React.Fragment>
                 <div className="container">
-                    <div className='col s12 m7'>
-                        <p>{this.state.postInfo.text}</p>
+                    <div className='col s12 m7 text-post'>
+                        <h5>{this.state.postInfo.text}</h5>
                     </div>
-                    <div class="row">
+                    <div className="row">
                         <div className="col s12">
                             <div className="row align-center">
                                 <div className="input-field col s9">
@@ -87,6 +87,7 @@ class TextPostPage extends Component {
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div className="row">

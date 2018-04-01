@@ -18,18 +18,21 @@ class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Header/>
-				<Switch>
-					<Route exact path='/login' component={WelcomePage} />
-					<Route exact path='/' component={FeedPage} />
-					<Route exact path='/people' component={PeoplePage} />
-					<Route exact path='/profile' component={ProfilePage} />
-					<Route path='/people/:id' component={ProfilePage} />
-					<Route path='/feeds/text/:id' component={TextPostPage} />
-					<Route path='/feeds/image/:id' component={ImagePostPage} />
-					<Route path='/feeds/video/:id' component={VideoPostPage} />
-				</Switch>
-				<Footer/>
+				<div id="wrapper">
+					<Header />
+					<Switch>
+						<Route exact path='/login' component={WelcomePage} />
+						<Route exact path='/' component={FeedPage} />
+						<Route exact path='/people' component={PeoplePage} />
+						<Route exact path='/profile' component={ProfilePage} />
+						<Route path='/people/:id' component={ProfilePage} />
+						<Route path='/feeds/text/:id' component={TextPostPage} />
+						<Route path='/feeds/image/:id' component={ImagePostPage} />
+						<Route path='/feeds/video/:id' component={VideoPostPage} />
+					</Switch>
+					<div id="push"></div>
+				</div>
+				<Footer />
 			</React.Fragment>
 		);
 	}
