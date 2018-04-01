@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CommentsListItem from './CommentsListItem';
 import postsData from '../../../services/postService';
 import commentService from '../../../services/commentService';
-import AddComment from './AddComment';
 
 class ImagePostPage extends Component {
 
@@ -31,6 +30,7 @@ class ImagePostPage extends Component {
                 })
             })
     }
+
     commentBody = (event) => {
         this.setState({
             commentText: event.target.value
@@ -51,15 +51,7 @@ class ImagePostPage extends Component {
 
     sendCommentOnEnter = (event) => {
         if (event.keyCode == 13) {
-            commentService.postComment(this.props.match.params.id, this.state.commentText)
-                .then(response => {
-                    if (response) {
-                        this.previewComments();
-                        this.setState({
-                            commentText: '',
-                        })
-                    }
-                })
+            this.sendComment();
         }
     }
 

@@ -6,16 +6,16 @@ const PeopleListItem = (props) => {
             <div className="card-panel grey lighten-5 z-depth-1">
                 <div className="row align-wrapper">
                     <div className="col s2">
-                        <img src={props.avatarUrl} alt="" className="circle responsive-img" />
+                        <img src={props.value.avatarUrl} alt="" className="circle responsive-img" />
                     </div>
                     <div className="col s8">
-                        <h5 className="align-center">{props.name}</h5>
+                        <h5 className="align-center">{props.value.name}</h5>
                         <span className="black-text">
-                            {props.aboutShort}
+                            {props.value.aboutShort}
                         </span>
                     </div>
                     <div className="col s2">
-                        <div className="">{props.lastPostDate}</div>
+                        <div className="">{props.value.lastPostDate}</div>
                     </div>
                 </div>
             </div>

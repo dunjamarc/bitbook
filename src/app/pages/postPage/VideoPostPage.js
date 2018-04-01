@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CommentsListItem from './CommentsListItem';
 import postsData from '../../../services/postService';
 import commentService from '../../../services/commentService';
-import AddComment from './AddComment';
 
 
 class VideoPostPage extends Component {
@@ -32,6 +31,7 @@ class VideoPostPage extends Component {
                 })
             })
     }
+
     commentBody = (event) => {
         this.setState({
             commentText: event.target.value
@@ -52,15 +52,7 @@ class VideoPostPage extends Component {
 
     sendCommentOnEnter = (event) => {
         if (event.keyCode == 13) {
-            commentService.postComment(this.props.match.params.id, this.state.commentText)
-                .then(response => {
-                    if (response) {
-                        this.previewComments();
-                        this.setState({
-                            commentText: '',
-                        })
-                    }
-                })
+            this.sendComment();
         }
     }
 
@@ -76,7 +68,6 @@ class VideoPostPage extends Component {
         return (
             <React.Fragment>
 
-
                 <div className="container">
                     <div className='col s12 m7'>
                         <div className="video-container">
@@ -86,8 +77,6 @@ class VideoPostPage extends Component {
 
 
                 </div>
-
-
 
                 <div className="container">
                 <div class="row">

@@ -7,7 +7,7 @@ const Footer = (props) => {
     return (
         <footer>
             <div className="container">
-                <p>BitBook&copy;2018</p>
+                <p>BitBook &copy; 2018</p>
             </div>
         </footer>
     )

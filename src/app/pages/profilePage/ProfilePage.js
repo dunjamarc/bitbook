@@ -11,20 +11,20 @@ class ProfilePage extends Component {
         super(props);
         this.state = {
             profile: {},
-            postId: 0
+            profileId: this.props.match.params.id
         }
     }
 
     componentDidMount() {
         var elem = document.querySelector('.modal');
         var instance = M.Modal.init(elem);
-        this.setState({postId: this.props.match.params.id});
+        
         this.fetchData();
     }
 
     fetchData = () => {
-        if (this.props.match.params.id === undefined) {
-
+        
+        if (this.state.profileId === undefined) {
             userService.getProfile()
                 .then(data => {
                     this.setState({
@@ -33,9 +33,8 @@ class ProfilePage extends Component {
                     })
                 })
         } else {
-            console.log(this.props.match.params.id);
 
-            userService.getUserDetail(this.props.match.params.id)     
+            userService.getUserDetail(this.state.profileId)     
                 .then(data => {
                     this.setState({
                         profile: data,
@@ -47,7 +46,10 @@ class ProfilePage extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        this.setState({postId: nextProps.match.params.id});
+        
+        this.setState({profileId: undefined});
+        console.log(this.state.profileId);
+
         this.fetchData();
     }
 

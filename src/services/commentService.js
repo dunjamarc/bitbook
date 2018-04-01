@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class commentsService extends Component {
+
     getCommentByPostId(postId) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/Comments?postId=${postId}`, {
             headers: {
@@ -39,5 +40,5 @@ class commentsService extends Component {
 }
 
 
-    const commentService = new commentsService();
-    export default commentService;
+const commentService = new commentsService();
+export default commentService;

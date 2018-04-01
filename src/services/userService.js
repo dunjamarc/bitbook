@@ -3,13 +3,18 @@ import User from '../entities/User'
 import UserDetail from '../entities/UserDetail'
 
 class userServices {
+
+    constructor(){
+        this.headers = {
+            'Content-Type': 'application/json',
+            'Key': 'bitbook',
+            'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
+        }
+    }
+
     getUsers() {
         return fetch(`http://bitbookapi.azurewebsites.net/api/users`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -24,11 +29,7 @@ class userServices {
 
     getProfile() {
         return fetch(`http://bitbookapi.azurewebsites.net/api/profile`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -41,11 +42,7 @@ class userServices {
 
     getUserDetail(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/users/${id}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -60,14 +57,10 @@ class userServices {
         return fetch(url, {
             method: 'PUT',
             body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
         })
     }
 }
 
-const userService = new userServices()
-export default userService
+const userService = new userServices();
+export default userService;

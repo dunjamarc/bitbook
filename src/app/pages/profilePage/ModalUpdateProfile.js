@@ -13,12 +13,12 @@ class ModalUpdateProfile extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+
         this.setState({
             nameInput: nextProps.profile.name,
             avatarUrl: nextProps.profile.avatarUrl,
             descriptionInput: nextProps.profile.about
         });
-        
     }
 
     handleImageChange = (event) => {
@@ -38,6 +38,7 @@ class ModalUpdateProfile extends Component {
             descriptionInput: event.target.value
         })
     }
+
     handleImgUrlChange = (event) => {
         this.setState({
             avatarUrl: event.target.value
@@ -85,7 +86,7 @@ class ModalUpdateProfile extends Component {
 
                     <input type="text" placeholder="Full Name" onChange={this.handleNameChange} value={this.state.nameInput} />
 
-                    <textarea name="info" id="" cols="30" rows="10" placeholder="User description and all text that0 describes user" onChange={this.handleDescriptionChange} value={this.state.descriptionInput}></textarea>
+                    <textarea name="info" id="" cols="30" rows="10" placeholder="User description" onChange={this.handleDescriptionChange} value={this.state.descriptionInput}></textarea>
                 </div>
 
                 <div className="modal-footer">

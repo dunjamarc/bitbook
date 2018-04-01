@@ -12,7 +12,7 @@ const CommentsListItem = (props) => {
                     <div className="col s10">
                         <span className="black-text">
                             {props.body}
-              </span>
+                        </span>
                     </div>
                 </div>
                 <p className="align-left">{props.authorName}</p>

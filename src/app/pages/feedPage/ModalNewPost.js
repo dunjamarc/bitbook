@@ -13,18 +13,16 @@ class ModalNewPost extends Component {
         }
     }
 
+    initModal = modal => M.Modal.init(document.querySelector(modal));
+
     componentDidMount() {
-        var modal2 = document.querySelector('#modal2');
-        var instance = M.Modal.init(modal2);
 
-        var modal3 = document.querySelector('#modal3');
-        var instance = M.Modal.init(modal3);
-
-        var modal4 = document.querySelector('#modal4');
-        var instance = M.Modal.init(modal4);
+        this.initModal('#modal2');
+        this.initModal('#modal3');
+        this.initModal('#modal4');
     }
 
-    imageLinkValidation = (url) =>{
+    imageLinkValidation = (url) => {
         let p = /(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?/;
         return (url.match(p)) ? true : false;
     }
@@ -96,7 +94,8 @@ class ModalNewPost extends Component {
     render() {
         return (
             <React.Fragment>
-                <div id="modal2" className="modal">
+                
+                <div id="modal2" className="modal">  
                     <div className="modal-content">
                         <h4>New text post</h4>
                         <textarea value={this.state.postValue} onChange={this.handleChange} name="info" id="" cols="30" rows="10" placeholder="Post content"></textarea>

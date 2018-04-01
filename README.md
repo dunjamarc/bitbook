@@ -2,11 +2,12 @@ File structure:
 
 
 src/
-	App.js
-	App.css
+	
 	index.js
 	index.css
 	app/
+		App.js
+		App.css
 		pages/
 
 			welcomePage/
@@ -16,9 +17,6 @@ src/
 			feedPage/
 				FeedPage.js
 				ModalNewPost/
-					ModalNewText.js
-					ModalNewImage.js
-					ModalNewVideo.js
 				FeedListItem/
 					FeedListImage.js
 					FeedListPost.js
@@ -28,13 +26,12 @@ src/
 				TextPostPage.js
 				ImagePostPage.js
 				VideoPostPage.js
-				CommentsListItem.js
+				CommentsListItem.js    - author img
 			peoplePage/
 				PeoplePage.js
-				Search.js              ---
 				PeopleListItem.js
 			profilePage/
-				ProfilePage.js
+				ProfilePage.js         - navigation
 				ModalUpdateProfile.js
 
 		partials/
@@ -42,9 +39,12 @@ src/
 			Footer.js
 
 	entities/
-		user.js
-		post.js
-		comment.js
+		User.js
+		UserDetail.js
+		Post.js
+		TextPost.js
+		ImagePost.js
+		VideoPost.js
 
 	services/
 		postService.js

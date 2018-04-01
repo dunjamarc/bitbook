@@ -6,13 +6,17 @@ import TextPost from '../entities/TextPost'
 
 class PostService {
 
+    constructor(){
+        this.headers = {
+            'Content-Type': 'application/json',
+            'Key': 'bitbook',
+            'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
+        }
+    }
+
     allData() {
         return fetch('http://bitbookapi.azurewebsites.net/api/Posts', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -33,11 +37,7 @@ class PostService {
 
     getTextPost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/TextPosts/${id}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -50,11 +50,7 @@ class PostService {
 
     getImagePost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/ImagePosts/${id}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -67,11 +63,7 @@ class PostService {
 
     getVideoPost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/VideoPosts/${id}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
             method: 'GET'
         })
             .then((response) => {
@@ -88,11 +80,7 @@ class PostService {
         return fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-                'Key': 'bitbook',
-                'SessionId': '7A5D8FF8-B04D-4C8C-9812-8B44EB7E4C94'
-            },
+            headers: this.headers,
         })
     }
 
