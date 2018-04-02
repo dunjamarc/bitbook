@@ -113,7 +113,7 @@ class ModalNewPost extends Component {
 
                     </div>
                     <div className="modal-footer">
-                        <a className={this.state.modalClose} className="modal-action waves-effect waves-green btn-flat" onClick={this.handleClickImage}>POST</a>
+                        <a className={`${this.state.modalClose} modal-action waves-effect waves-green btn-flat`} onClick={this.handleClickImage}>POST</a>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@ class ModalNewPost extends Component {
                         <p className={this.state.errorClass}>Input must be YouTube video url</p>
                     </div>
                     <div className="modal-footer">
-                        <a className={this.state.modalClose} className="modal-action waves-effect waves-green btn-flat" onClick={this.handleClickVideo}>POST</a>
+                        <a className={`${this.state.modalClose} modal-action waves-effect waves-green btn-flat`} onClick={this.handleClickVideo}>POST</a>
                     </div>
                 </div>
             </React.Fragment >

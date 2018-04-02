@@ -29,9 +29,9 @@ src/
 				CommentsListItem.js    - author img
 			peoplePage/
 				PeoplePage.js
-				PeopleListItem.js      - last post time
+				PeopleListItem.js      
 			profilePage/
-				ProfilePage.js         - navigation
+				ProfilePage.js         
 				ModalUpdateProfile.js  
 
 		partials/

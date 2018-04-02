@@ -86,6 +86,7 @@ class VideoPostPage extends Component {
                         <i onClick={this.deletePost} className="col s2 material-icons right medium red-text text-darken-2 dp48">delete</i>
                     </div>
 
+
                     <div className="container">
                         <div class="row">
                             <div className="col s12">
@@ -99,6 +100,7 @@ class VideoPostPage extends Component {
                                             <i className="large material-icons">send</i>
                                         </button>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

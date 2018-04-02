@@ -1,4 +1,3 @@
-import React from 'react'
 import VideoPost from '../entities/VideoPost'
 import ImagePost from '../entities/ImagePost'
 import TextPost from '../entities/TextPost'

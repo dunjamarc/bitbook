@@ -3,8 +3,9 @@ import FeedListImage from './FeedListItem/FeedListImage';
 import FeedListVideo from './FeedListItem/FeedListVideo';
 import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
-import M, { Modal } from "materialize-css";
+import M, { Modal , material_select} from "materialize-css";
 import postsData from '../../../services/postService';
+import Filter from './Filter.js';
 
 
 class FeedPage extends Component {
@@ -22,7 +23,6 @@ class FeedPage extends Component {
     componentDidMount() {
         var elem = document.querySelector('.fixed-action-btn');
         var instance = M.FloatingActionButton.init(elem);
-
         this.fetchPosts();
 
     }
@@ -31,7 +31,7 @@ class FeedPage extends Component {
         postsData.allData()
             .then(data => {
                 this.setState({
-                    allPosts: data.slice(0,10),
+                    allPosts: data.slice(0, 10),
                     videoPosts: data.filter(el => {
                         return el.type === 'video';
                     }),
@@ -45,17 +45,39 @@ class FeedPage extends Component {
             })
     }
 
+    handleChange = (event) => {
+
+        if (event.target.value === 'video') {
+            //this.fetchPosts()
+            this.setState({
+                allPosts: this.state.videoPosts
+            })
+        } else if(event.target.value === 'image') {
+            this.setState({
+                allPosts: this.state.imagePosts
+            })
+        } else if(event.target.value === 'text') {
+            this.setState({
+                allPosts: this.state.textPosts
+            })
+        } else {
+            this.fetchPosts();
+        }
+
+    }
+
     render() {
         return (
             <React.Fragment>
+                <Filter value={this.handleChange} />
                 <div className="container">
                     {this.state.allPosts.map(el => {
                         if (el.type === 'video') {
-                            return <FeedListVideo value={el} key={el.id} commentsNum={el.commentsNum}/>
+                            return <FeedListVideo value={el} key={el.id} commentsNum={el.commentsNum} />
                         } else if (el.type === 'image') {
-                            return <FeedListImage value={el} key={el.id} commentsNum={el.commentsNum}/>
+                            return <FeedListImage value={el} key={el.id} commentsNum={el.commentsNum} />
                         } else {
-                            return <FeedListPost value={el} key={el.id} commentsNum={el.commentsNum}/>
+                            return <FeedListPost value={el} key={el.id} commentsNum={el.commentsNum} />
                         }
                     })}
                 </div>
