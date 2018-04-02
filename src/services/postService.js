@@ -5,7 +5,7 @@ import TextPost from '../entities/TextPost'
 
 class PostService {
 
-    constructor(){
+    constructor() {
         this.headers = {
             'Content-Type': 'application/json',
             'Key': 'bitbook',
@@ -73,13 +73,20 @@ class PostService {
             })
     }
 
-    
+
 
     sendPost(url, data) { // text/image/video
         return fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: this.headers,
+        })
+    }
+
+    deletePost(id) {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/posts/${id}`, {
+            headers: this.headers,
+            method: 'DELETE'
         })
     }
 

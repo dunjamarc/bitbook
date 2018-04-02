@@ -63,6 +63,14 @@ class VideoPostPage extends Component {
             })
         })
     }
+    deletePost = () => {
+        return postsData.deletePost(this.props.match.params.id)
+            .then(response => {
+                if (response) {
+                    window.location = '/'
+                }
+            })
+    }
 
     render() {
         return (
@@ -74,22 +82,25 @@ class VideoPostPage extends Component {
                             <iframe width="853" height="480" src={this.state.postInfo.videoUrl} frameBorder="0" allowFullScreen allow="autoplay; encrypted-media"></iframe>
                         </div>
                     </div>
+                    <div className='col s12 m7'>
+                        <i onClick={this.deletePost} className="col s2 material-icons right medium red-text text-darken-2 dp48">delete</i>
+                    </div>
 
 
-                </div>
+                    <div className="container">
+                        <div class="row">
+                            <div className="col s12">
+                                <div className="row align-center">
+                                    <div className="input-field col s9">
+                                        <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
+                                        <label htmlFor="icon_prefix">Add comment</label>
+                                    </div>
+                                    <div className="input-field col s3 ">
+                                        <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
+                                            <i className="large material-icons">send</i>
+                                        </button>
+                                    </div>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col s12">
-                            <div className="row align-center">
-                                <div className="input-field col s9">
-                                    <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
-                                    <label htmlFor="icon_prefix">Add comment</label>
-                                </div>
-                                <div className="input-field col s3 ">
-                                    <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
-                                        <i className="large material-icons">send</i>
-                                    </button>
                                 </div>
                             </div>
                         </div>
