@@ -51,7 +51,7 @@ class VideoPostPage extends Component {
     }
 
     sendCommentOnEnter = (event) => {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             this.sendComment();
         }
     }
@@ -79,7 +79,7 @@ class VideoPostPage extends Component {
                 <div className="container">
                     <div className='col s12 m7'>
                         <div className="video-container">
-                            <iframe width="853" height="480" src={this.state.postInfo.videoUrl} frameBorder="0" allowFullScreen allow="autoplay; encrypted-media"></iframe>
+                            <iframe width="853" height="480" title='video' src={this.state.postInfo.videoUrl} frameBorder="0" allowFullScreen allow="autoplay; encrypted-media"></iframe>
                         </div>
                     </div>
                     <div className='col s12 m7'>
@@ -88,7 +88,7 @@ class VideoPostPage extends Component {
 
 
                     <div className="container">
-                        <div class="row">
+                        <div className="row">
                             <div className="col s12">
                                 <div className="row align-center">
                                     <div className="input-field col s9">
@@ -96,7 +96,7 @@ class VideoPostPage extends Component {
                                         <label htmlFor="icon_prefix">Add comment</label>
                                     </div>
                                     <div className="input-field col s3 ">
-                                        <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
+                                        <button onClick={this.sendComment} className={`${(this.state.commentText.length === 0) ? "disabled " : ""}btn waves-effect waves-light col s12 align-center`} type="submit" name="action">
                                             <i className="large material-icons">send</i>
                                         </button>
                                     </div>

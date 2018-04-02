@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import Header from "../../partials/Header";
-import Footer from "../../partials/Footer";
 
 
 

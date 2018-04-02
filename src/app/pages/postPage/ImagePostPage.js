@@ -50,7 +50,7 @@ class ImagePostPage extends Component {
     }
 
     sendCommentOnEnter = (event) => {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             this.sendComment();
         }
     }
@@ -80,7 +80,7 @@ class ImagePostPage extends Component {
             <React.Fragment>
                 <div className="container">
                     <div className='col s12 m7'>
-                        <img className="image-post" src={this.state.postInfo.imageUrl} alt='post-image' />
+                        <img className="image-post" src={this.state.postInfo.imageUrl} alt='post' />
                     </div>
                     <div className='col s12 m7'>
                         <i onClick={this.deletePost} className="col s2 material-icons right medium red-text text-darken-2 dp48">delete</i>
@@ -93,7 +93,7 @@ class ImagePostPage extends Component {
                                     <label htmlFor="icon_prefix">Add comment</label>
                                 </div>
                                 <div className="input-field col s3 ">
-                                    <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
+                                    <button onClick={this.sendComment} className={`${(this.state.commentText.length === 0) ? "disabled" : ""} btn waves-effect waves-light col s12 align-center`} type="submit" name="action">
                                         <i className="large material-icons">send</i>
                                     </button>
                                 </div>

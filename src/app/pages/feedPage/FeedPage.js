@@ -3,7 +3,6 @@ import FeedListImage from './FeedListItem/FeedListImage';
 import FeedListVideo from './FeedListItem/FeedListVideo';
 import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
-import M, { Modal , material_select} from "materialize-css";
 import postsData from '../../../services/postService';
 import Filter from './Filter.js';
 
@@ -22,8 +21,6 @@ class FeedPage extends Component {
     }
 
     componentDidMount() {
-        var elem = document.querySelector('.fixed-action-btn');
-        var instance = M.FloatingActionButton.init(elem);
         this.fetchPosts();
 
     }
@@ -98,6 +95,7 @@ class FeedPage extends Component {
                     </a>
                     <ul>
                         <li><a className="btn-floating blue modal-trigger" href="#modal2">
+
                             <i className="material-icons">text_fields</i>
                         </a></li>
                         <li><a className="btn-floating green modal-trigger" href="#modal3">
@@ -105,6 +103,7 @@ class FeedPage extends Component {
                         </a></li>
                         <li><a className="btn-floating red modal-trigger" href="#modal4">
                             <i className="material-icons">videocam</i>
+
                         </a></li>
                     </ul>
                 </div>

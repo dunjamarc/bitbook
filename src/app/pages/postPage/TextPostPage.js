@@ -52,7 +52,7 @@ class TextPostPage extends Component {
     }
 
     sendCommentOnEnter = (event) => {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             this.sendComment();
         }
     }
@@ -90,12 +90,12 @@ class TextPostPage extends Component {
                     <div className="row">
                         <div className="col s12">
                             <div className="row align-center">
-                                <div className="input-field C">
+                                <div className="input-field col s9">
                                     <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
                                     <label htmlFor="icon_prefix">Add comment</label>
                                 </div>
                                 <div className="input-field col s3 ">
-                                    <button onClick={this.sendComment} className="btn waves-effect waves-light col s12 align-center" type="submit" name="action">
+                                    <button onClick={this.sendComment} className={`${(this.state.commentText.length === 0) ? "disabled" : ""} btn waves-effect waves-light col s12 align-center`} type="submit" name="action">
                                         <i className="large material-icons">send</i>
                                     </button>
                                 </div>
