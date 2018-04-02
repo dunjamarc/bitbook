@@ -24,10 +24,10 @@ class PostService {
             })
             .then((response) => {
                 return response.map((el) => {
-                    if (el.type == 'video') {
+                    if (el.type === 'video') {
                         return new VideoPost(el);
                     }
-                    if (el.type == 'image') {
+                    if (el.type === 'image') {
                         return new ImagePost(el)
                     }
                     return new TextPost(el)
