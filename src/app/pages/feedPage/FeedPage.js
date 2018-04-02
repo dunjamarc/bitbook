@@ -15,7 +15,8 @@ class FeedPage extends Component {
             allPosts: [],
             videoPosts: [],
             textPosts: [],
-            imagePosts: []
+            imagePosts: [],
+            error: false
         }
     }
 
@@ -38,6 +39,11 @@ class FeedPage extends Component {
                     imagePosts: data.filter(el => {
                         return el.type === 'image';
                     })
+                })
+            })
+            .catch(error => {
+                this.setState({
+                    error: error.message
                 })
             })
     }
@@ -66,7 +72,9 @@ class FeedPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <Filter value={this.handleChange} />
+                {this.state.error
+                    ? <p className="error-message">{this.state.error}</p>
+                    : <div><Filter value={this.handleChange} />
                 <div className="container">
                     {this.state.allPosts.map(el => {
                         if (el.type === 'video') {
@@ -87,16 +95,19 @@ class FeedPage extends Component {
                     </a>
                     <ul>
                         <li><a className="btn-floating blue modal-trigger" href="#modal2">
-                            <i className="material-icons">T</i><p>Text</p>
+
+                            <i className="material-icons">text_fields</i>
                         </a></li>
                         <li><a className="btn-floating green modal-trigger" href="#modal3">
-                            <i className="material-icons">I</i>
+                            <i className="material-icons">image</i>
                         </a></li>
                         <li><a className="btn-floating red modal-trigger" href="#modal4">
-                            <i className="material-icons">V</i>
+                            <i className="material-icons">videocam</i>
+
                         </a></li>
                     </ul>
                 </div>
+                </div>}
             </React.Fragment>
 
         );
