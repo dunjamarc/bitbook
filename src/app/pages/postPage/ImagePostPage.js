@@ -62,6 +62,17 @@ class ImagePostPage extends Component {
             })
         })
     }
+    deletePost = () => {
+        return postsData.deletePost(this.props.match.params.id)
+            .then(response => {
+                if (response) {
+                    window.location = '/'
+                }
+            })
+    }
+
+
+
 
     render() {
         return (
@@ -70,6 +81,9 @@ class ImagePostPage extends Component {
                 <div className="container">
                     <div className='col s12 m7'>
                         <img className="image-post" src={this.state.postInfo.imageUrl} alt='post-image' />
+                    </div>
+                    <div className='col s12 m7'>
+                        <i onClick={this.deletePost} className="col s2 material-icons right medium red-text text-darken-2 dp48">delete</i>
                     </div>
                     <div class="row">
                         <div className="col s12">

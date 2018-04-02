@@ -1,6 +1,7 @@
 import React from 'react';
 
 const PeopleListItem = (props) => {
+    let postDate = new Date(props.value.lastPostDate);
     return (
         <div className="col s12 m8 offset-m2 l6 offset-l3">
             <div className="card-panel grey lighten-5 z-depth-1">
@@ -15,8 +16,8 @@ const PeopleListItem = (props) => {
                         </span>
                     </div>
                     <div className="col s2">
-
-                        <div className="">{props.value.lastPostDate == null ? "No posts yet" : (new Date).toDateString() == new Date(props.value.lastPostDate).toDateString() ? new Date(props.value.lastPostDate).getHours()+ ":" + new Date(props.value.lastPostDate).getMinutes() : new Date(props.value.lastPostDate).getHours()+ ":" + new Date(props.value.lastPostDate).getMinutes() + " " + new Date(props.value.lastPostDate).getDate() + "." + (new Date(props.value.lastPostDate).getMonth()+1) + "." + new Date(props.value.lastPostDate).getFullYear()}</div>
+                        
+                        <div className="">{props.value.lastPostDate === null ? "No posts yet" : (new Date).toDateString() === postDate.toDateString() ? postDate.getHours()+ ":" + postDate.getMinutes() : postDate.getHours()+ ":" + postDate.getMinutes() + " " + postDate.getDate() + "." + (postDate.getMonth()+1) + "." + postDate.getFullYear()}</div>
 
                     </div>
                 </div>
