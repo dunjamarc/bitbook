@@ -22,7 +22,7 @@ class PostService {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    throw new Error('GRESKA :(');
+                    throw new Error('SOMETHING WENT WRONG :(');
                 }
             })
             .then((response) => {
@@ -44,7 +44,11 @@ class PostService {
             method: 'GET'
         })
             .then((response) => {
-                return response.json()
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('SOMETHING WENT WRONG :(');
+                }
             })
             .then((response) => {
                 return new TextPost(response);
@@ -57,7 +61,11 @@ class PostService {
             method: 'GET'
         })
             .then((response) => {
-                return response.json()
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('SOMETHING WENT WRONG :(');
+                }
             })
             .then((response) => {
                 return new ImagePost(response);
@@ -70,7 +78,11 @@ class PostService {
             method: 'GET'
         })
             .then((response) => {
-                return response.json()
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('SOMETHING WENT WRONG :(');
+                }
             })
             .then((response) => {
                 return new VideoPost(response);

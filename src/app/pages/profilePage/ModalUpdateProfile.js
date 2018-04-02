@@ -70,7 +70,7 @@ class ModalUpdateProfile extends Component {
             <form action="#">
                 <div className="modal-content">
                     <h4>Update profile</h4>
-                    <img src={this.state.avatarUrl} alt="profile" />
+                    <img className="update-pic" src={this.state.avatarUrl} alt="profile" />
                     
                     <div className="file-field input-field">
                         <div className="btn">

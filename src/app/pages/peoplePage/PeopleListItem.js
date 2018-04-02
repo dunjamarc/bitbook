@@ -17,7 +17,7 @@ const PeopleListItem = (props) => {
                     </div>
                     <div className="col s2">
                         
-                        <div className="">{props.value.lastPostDate === null ? "No posts yet" : (new Date()).toDateString() === postDate.toDateString() ? postDate.getHours()+ ":" + postDate.getMinutes() : postDate.getHours()+ ":" + postDate.getMinutes() + " " + postDate.getDate() + "." + (postDate.getMonth()+1) + "." + postDate.getFullYear()}</div>
+                        <div className="">{props.value.lastPostDate === null ? "No posts yet" : (new Date()).toDateString() === postDate.toDateString() ? "Last post at:" + postDate.getHours()+ ":" + postDate.getMinutes() : "Last post at:" + postDate.getHours()+ ":" + postDate.getMinutes() + " " + postDate.getDate() + "." + (postDate.getMonth()+1) + "." + postDate.getFullYear()}</div>
 
                     </div>
                 </div>
