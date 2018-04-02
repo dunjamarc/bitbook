@@ -18,8 +18,12 @@ class PostService {
             headers: this.headers,
             method: 'GET'
         })
-            .then((response) => {
-                return response.json()
+            .then((response) => {                
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('GRESKA :(');
+                }
             })
             .then((response) => {
                 return response.map((el) => {

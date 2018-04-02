@@ -89,3 +89,9 @@ a {
   right: 20px;
   top: 100px;
 }
+
+.error-message {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 150px;
+}

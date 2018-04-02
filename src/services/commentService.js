@@ -12,6 +12,7 @@ class commentsService extends Component {
             method: 'GET'
         })
             .then((response) => {
+                
                 return response.json()
             })
             .then((response) => {
