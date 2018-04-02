@@ -17,7 +17,7 @@ class Header extends Component {
         this.setState({
             linkActive1: 'active',
             linkActive2: '',
-            linkActive2: ''
+            linkActive3: ''
         })
     }
 

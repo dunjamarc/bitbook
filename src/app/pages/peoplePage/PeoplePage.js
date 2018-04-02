@@ -25,7 +25,7 @@ class PeoplePage extends Component {
         this.setState({
             inputValue: event.target.value,
             findUsers: this.state.usersData.filter((el) => {
-                return el.name.toLowerCase().search(event.target.value.toLowerCase()) != -1
+                return el.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1
             })
 
         })

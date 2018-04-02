@@ -1,4 +1,3 @@
-import React from 'react'
 import User from '../entities/User'
 import UserDetail from '../entities/UserDetail'
 

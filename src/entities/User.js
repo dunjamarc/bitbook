@@ -1,5 +1,3 @@
-import React from 'react'
-
 class User {
     constructor(Obj){
         this.id = Obj.id

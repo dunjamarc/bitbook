@@ -50,7 +50,7 @@ class ImagePostPage extends Component {
     }
 
     sendCommentOnEnter = (event) => {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             this.sendComment();
         }
     }
@@ -80,7 +80,7 @@ class ImagePostPage extends Component {
             <React.Fragment>
                 <div className="container">
                     <div className='col s12 m7'>
-                        <img className="image-post" src={this.state.postInfo.imageUrl} alt='post-image' />
+                        <img className="image-post" src={this.state.postInfo.imageUrl} alt='post' />
                     </div>
                     <div className='col s12 m7'>
                         <i onClick={this.deletePost} className="col s2 material-icons right medium red-text text-darken-2 dp48">delete</i>

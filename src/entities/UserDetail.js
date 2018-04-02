@@ -1,5 +1,3 @@
-import React from 'react'
-
 class UserDetail  {
     constructor (Obj){
         this.userId = Obj.userId
