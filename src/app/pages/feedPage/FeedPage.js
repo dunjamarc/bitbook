@@ -86,17 +86,17 @@ class FeedPage extends Component {
 
                 <div className="fixed-action-btn">
                     <a className="btn-floating btn-large red">
-                        <i className="large material-icons">+</i>
+                        <i className="large material-icons">add</i>
                     </a>
                     <ul>
                         <li><a className="btn-floating blue modal-trigger" href="#modal2">
-                            <i className="material-icons">Text</i>
+                            <i className="material-icons">T</i><p>Text</p>
                         </a></li>
                         <li><a className="btn-floating green modal-trigger" href="#modal3">
-                            <i className="material-icons">Image</i>
+                            <i className="material-icons">I</i>
                         </a></li>
                         <li><a className="btn-floating red modal-trigger" href="#modal4">
-                            <i className="material-icons">Video</i>
+                            <i className="material-icons">V</i>
                         </a></li>
                     </ul>
                 </div>
