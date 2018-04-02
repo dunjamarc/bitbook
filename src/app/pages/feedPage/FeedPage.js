@@ -3,7 +3,6 @@ import FeedListImage from './FeedListItem/FeedListImage';
 import FeedListVideo from './FeedListItem/FeedListVideo';
 import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
-import M, { Modal , material_select} from "materialize-css";
 import postsData from '../../../services/postService';
 import Filter from './Filter.js';
 
@@ -21,8 +20,6 @@ class FeedPage extends Component {
     }
 
     componentDidMount() {
-        var elem = document.querySelector('.fixed-action-btn');
-        var instance = M.FloatingActionButton.init(elem);
         this.fetchPosts();
 
     }

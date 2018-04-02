@@ -52,7 +52,7 @@ class TextPostPage extends Component {
     }
 
     sendCommentOnEnter = (event) => {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             this.sendComment();
         }
     }

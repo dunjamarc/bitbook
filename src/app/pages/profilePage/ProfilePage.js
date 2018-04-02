@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import Header from "../../partials/Header";
-import Footer from "../../partials/Footer";
-import { Link } from 'react-router-dom';
-import M, { Modal } from "materialize-css";
 import ModalUpdateProfile from "./ModalUpdateProfile.js";
 import userService from '../../../services/userService.js';
 
@@ -16,8 +12,6 @@ class ProfilePage extends Component {
     }
 
     componentDidMount() {
-        var elem = document.querySelector('.modal');
-        var instance = M.Modal.init(elem);
 
         this.fetchData();
     }
@@ -58,7 +52,7 @@ class ProfilePage extends Component {
                 </div>
                 <div className='container center-align'>
 
-                    <img id="avatar" src={this.state.profile.avatarUrl === '' ? 'https://findd.com.my/include/img/user_dashboard/profile.png' : this.state.profile.avatarUrl} />
+                    <img id="avatar" alt="avatar" src={this.state.profile.avatarUrl === '' ? 'https://findd.com.my/include/img/user_dashboard/profile.png' : this.state.profile.avatarUrl} />
                     <h2>{this.state.profile.name}</h2>
                     {this.state.myProfile ? <a className="modal-trigger" href="#modal1">Edit profile</a> : ''}
                     <p className='user-description'>{this.state.profile.about}</p>

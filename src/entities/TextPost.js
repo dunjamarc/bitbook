@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import Post from './Post'
 
 class TextPost extends Post {
