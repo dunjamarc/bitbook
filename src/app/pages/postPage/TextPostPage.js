@@ -11,7 +11,7 @@ class TextPostPage extends Component {
         this.state = {
             postInfo: {},
             commentInfo: [],
-            commentText: '',
+            commentText: ''
         }
 
     }
@@ -25,10 +25,21 @@ class TextPostPage extends Component {
                     postInfo: data
                 })
             })
+            .catch(error => {
+                this.setState({
+                    error: error.message
+                })
+            })
+
         commentService.getCommentByPostId(this.props.match.params.id)
             .then((response) => {
                 this.setState({
                     commentInfo: response,
+                })
+            })
+            .catch(error => {
+                this.setState({
+                    error: error.message
                 })
             })
     }
@@ -77,41 +88,45 @@ class TextPostPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container">
-                    <div className='col s12 m7 text-post'>
-                            <h5 className='col s10 center'>{this.state.postInfo.text}</h5>
-                    </div>
-                    <div className='col s12 m7'>
-                            <i onClick={this.deletePost} className="col s2 material-icons right medium red-text text-darken-2 dp48">delete</i>
-                    </div>
+                {this.state.error
+                    ? <p className='error-message'>{this.state.error}</p>
+                    : <div>
+                        <div className="container">
+                            <div className='col s12 m7 text-post'>
+                                <h5 className='col s10 center'>{this.state.postInfo.text}</h5>
+                            </div>
+                            <div className='col s12 m7 delete-text'>
+                                <i onClick={this.deletePost} className="col s2 material-icons right small text-darken-2 dp48">delete</i>
+                            </div>
 
 
 
-                    <div className="row">
-                        <div className="col s12">
-                            <div className="row align-center">
-                                <div className="input-field col s9">
-                                    <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
-                                    <label htmlFor="icon_prefix">Add comment</label>
-                                </div>
-                                <div className="input-field col s3 ">
-                                    <button onClick={this.sendComment} className={`${(this.state.commentText.length === 0) ? "disabled" : ""} btn waves-effect waves-light col s12 align-center`} type="submit" name="action">
-                                        <i className="large material-icons">send</i>
-                                    </button>
+                            <div className="row">
+                                <div className="col s12">
+                                    <div className="row align-center">
+                                        <div className="input-field col s9">
+                                            <input onKeyUp={this.sendCommentOnEnter} id="icon_prefix" type="text" onChange={this.commentBody} value={this.state.commentText} className="validate" />
+                                            <label htmlFor="icon_prefix">Add comment</label>
+                                        </div>
+                                        <div className="input-field col s3 ">
+                                            <button onClick={this.sendComment} className={`${(this.state.commentText.length === 0) ? "disabled" : ""} btn waves-effect waves-light col s12 align-center`} type="submit" name="action">
+                                                <i className="large material-icons">send</i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
 
-                </div>
-
-                <div className="row">
-                    {
-                        this.state.commentInfo.map((el, i) => {
-                            return <CommentsListItem authorName={el.authorName} body={el.body} key={el.id} />
-                        })
-                    }
-                </div>
+                        <div className="row">
+                            {
+                                this.state.commentInfo.map((el, i) => {
+                                    return <CommentsListItem authorName={el.authorName} body={el.body} key={el.id} />
+                                })
+                            }
+                        </div>
+                    </div>}
             </React.Fragment>
         )
     }

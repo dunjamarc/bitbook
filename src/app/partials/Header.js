@@ -14,31 +14,6 @@ class Header extends Component {
         }
     }
 
-
-    handleClick1 = (event) => {
-        this.setState({
-            linkActive1: 'active',
-            linkActive2: '',
-            linkActive3: ''
-        })
-    }
-
-    handleClick2 = (event) => {
-        this.setState({
-            linkActive1: '',
-            linkActive2: 'active',
-            linkActive3: ''
-        })
-    }
-
-    handleClick3 = (event) => {
-        this.setState({
-            linkActive1: '',
-            linkActive2: '',
-            linkActive3: 'active'
-        })
-    }
-
     render() {
         return (
             <nav>

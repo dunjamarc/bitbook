@@ -5,6 +5,7 @@ import FeedListPost from './FeedListItem/FeedListPost';
 import ModalNewPost from './ModalNewPost';
 import postsData from '../../../services/postService';
 import Filter from './Filter.js';
+import M from "materialize-css";
 
 
 class FeedPage extends Component {
@@ -21,6 +22,8 @@ class FeedPage extends Component {
     }
 
     componentDidMount() {
+        var elem = document.querySelector('.fixed-action-btn');
+        M.FloatingActionButton.init(elem);
         this.fetchPosts();
 
     }

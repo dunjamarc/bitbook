@@ -12,8 +12,11 @@ class commentsService extends Component {
             method: 'GET'
         })
             .then((response) => {
-                
-                return response.json()
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('SOMETHING WENT WRONG :(');
+                }
             })
             .then((response) => {
                 return response

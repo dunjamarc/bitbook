@@ -13,10 +13,16 @@ class PeoplePage extends Component {
         }
     }
     componentDidMount() {
-        userService.getUsers().then((response) => {
+        userService.getUsers()
+        .then((response) => {
             this.setState({
                 usersData: response,
                 findUsers: response,
+            })
+        })
+        .catch(error => {
+            this.setState({
+                error: error.message
             })
         })
     }
@@ -34,7 +40,9 @@ class PeoplePage extends Component {
     
     render() {
         return (
-            <React.Fragment>
+            this.state.error
+            ? <p className="error-message">{this.state.error}</p>
+            : <React.Fragment>
                 <div className="container">
                     <div className="input-field col s9">
                         <i className="material-icons prefix">search</i><input id="icon_prefix" onChange={this.searchUsers} type="text" value={this.state.inputValue} placeholder="Search" className="validate" />
