@@ -1,4 +1,3 @@
-import React from 'react'
 import VideoPost from '../entities/VideoPost'
 import ImagePost from '../entities/ImagePost'
 import TextPost from '../entities/TextPost'
@@ -24,10 +23,10 @@ class PostService {
             })
             .then((response) => {
                 return response.map((el) => {
-                    if (el.type == 'video') {
+                    if (el.type === 'video') {
                         return new VideoPost(el);
                     }
-                    if (el.type == 'image') {
+                    if (el.type === 'image') {
                         return new ImagePost(el)
                     }
                     return new TextPost(el)
