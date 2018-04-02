@@ -81,3 +81,11 @@ a {
 .image-post {
   max-width: 100%;
 }
+
+#filter {
+  display: block;
+  width: 15%;
+  position: absolute;
+  right: 20px;
+  top: 100px;
+}

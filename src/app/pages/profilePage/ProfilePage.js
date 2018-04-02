@@ -18,13 +18,12 @@ class ProfilePage extends Component {
     componentDidMount() {
         var elem = document.querySelector('.modal');
         var instance = M.Modal.init(elem);
-        
+
         this.fetchData();
     }
 
-    fetchData = () => {
-        
-        if (this.state.profileId === undefined) {
+    fetchData = (whichData) => {
+        if (whichData === 'myProfile' || this.props.match.params.id === undefined) {
             userService.getProfile()
                 .then(data => {
                     this.setState({
@@ -33,8 +32,7 @@ class ProfilePage extends Component {
                     })
                 })
         } else {
-
-            userService.getUserDetail(this.state.profileId)     
+            userService.getUserDetail(this.state.profileId)
                 .then(data => {
                     this.setState({
                         profile: data,
@@ -44,17 +42,15 @@ class ProfilePage extends Component {
         }
     }
 
-
     componentWillReceiveProps(nextProps) {
-        
-        this.setState({profileId: undefined});
-        console.log(this.state.profileId);
-
-        this.fetchData();
+        if (nextProps.match.params.id === undefined) {
+            this.fetchData('myProfile');
+        } else {
+            this.fetchData();
+        }
     }
 
     render() {
-
         return (
             <React.Fragment>
                 <div id="modal1" className="modal">

@@ -79,7 +79,7 @@ class VideoPostPage extends Component {
                 </div>
 
                 <div className="container">
-                    <div class="row">
+                    <div className="row">
                         <div className="col s12">
                             <div className="row align-center">
                                 <div className="input-field col s9">
