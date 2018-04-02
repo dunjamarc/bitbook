@@ -21,7 +21,7 @@ src/
 					FeedListImage.js
 					FeedListPost.js
 					FeedListVideo.js
-				Filter.js              ---
+				Filter.js              
 			postPage/
 				TextPostPage.js
 				ImagePostPage.js
@@ -35,7 +35,7 @@ src/
 				ModalUpdateProfile.js  
 
 		partials/
-			Header.js                  ...
+			Header.js                  
 			Footer.js
 
 	entities/

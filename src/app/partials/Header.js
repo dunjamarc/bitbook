@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            linkActive1: '',
-            linkActive2: '',
-            linkActive3: ''
+    getLocation = () => {
+        if (window.location.href.search('feed') !== -1) {
+            return 'feed';
+        } else if (window.location.href.search('people') !== -1) {
+            return 'people';
+        } else {
+            return 'profile'
         }
     }
+
 
     handleClick1 = (event) => {
         this.setState({
@@ -43,9 +45,9 @@ class Header extends Component {
                 <div className="nav-wrapper container">
                     <a className="brand-logo">Bitbook</a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li className={this.state.linkActive1}><Link onClick={this.handleClick1} to='/'>Feed</Link></li>
-                        <li className={this.state.linkActive2}><Link onClick={this.handleClick2} to='/people'>People</Link></li>
-                        <li className={this.state.linkActive3}><Link onClick={this.handleClick3} to='/profile'>Profile</Link></li>
+                        <li className={this.getLocation() === 'feed' ? 'active' : ''}><Link to='/'>Feed</Link></li>
+                        <li className={this.getLocation() === 'people' ? 'active' : ''}><Link to='/people'>People</Link></li>
+                        <li className={this.getLocation() === 'profile' ? 'active' : ''}><Link to='/profile'>Profile</Link></li>
                     </ul>
                 </div>
             </nav>
