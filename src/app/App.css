@@ -116,3 +116,7 @@ a {
 #login, #register {
   margin-top: 30px;
 }
+
+.login {
+  margin-top: 10%;
+}

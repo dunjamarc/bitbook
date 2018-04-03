@@ -13,15 +13,15 @@ class RegisterForm extends React.Component {
         }
     }
 
-    // register = () => {
-    //     let dataObj = {
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //         name: this.state.name,
-    //         email: this.state.email
-    //       }
-    //     userService.sendRegistrationData(dataObj);
-    // }
+    register = () => {
+        let dataObj = {
+            username: this.state.username,
+            password: this.state.password,
+            name: this.state.name,
+            email: this.state.email
+          }
+        userService.sendRegistrationData(dataObj);
+    }
 
     handleChange = (event) => {
         switch (event.target.id){
