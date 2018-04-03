@@ -1,12 +1,11 @@
 import React from 'react';
-import userService from '../../../services/userService.js';
+import autoService from '../../../services/authenticationService.js';
 
 
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
             password: '',
             name: '',
             email: ''
@@ -15,21 +14,20 @@ class RegisterForm extends React.Component {
 
     register = () => {
         let dataObj = {
-            username: this.state.username,
+            username: this.state.email,
             password: this.state.password,
             name: this.state.name,
             email: this.state.email
           }
-        userService.sendRegistrationData(dataObj);
+        autoService.sendRegistrationData(dataObj)
+
     }
 
     handleChange = (event) => {
         switch (event.target.id){
             case "text name" : this.setState({name: event.target.value});
             break;
-            case "text username" : this.setState({username: event.target.value});
-            break;
-            case "email" : this.setState({email: event.target.value});
+            case "email-reg" : this.setState({email: event.target.value});
             break;
             default : this.setState({password: event.target.value});
         }
@@ -45,12 +43,6 @@ class RegisterForm extends React.Component {
                         <div className="input-field col s12">
                             <input id="text name" type="text" className="validate" value={this.state.name} onChange={this.handleChange}/>
                             <label htmlFor="text name">Name</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input id="text username" type="text" className="validate" value={this.state.username} onChange={this.handleChange}/>
-                            <label htmlFor="text username">Username</label>
                         </div>
                     </div>
                     <div className="row">

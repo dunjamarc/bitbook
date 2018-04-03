@@ -9,7 +9,7 @@ class Header extends Component {
             return 'feed';
         } else if (window.location.href.search('people') !== -1) {
             return 'people';
-        } else {
+        } else if (window.location.href.search('profile') !== -1) {
             return 'profile'
         }
     }

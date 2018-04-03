@@ -8,7 +8,8 @@ class ModalUpdateProfile extends Component {
         this.state = {
             nameInput: '',
             descriptionInput: '',
-            avatarUrl: 'https://findd.com.my/include/img/user_dashboard/profile.png'
+            avatarUrl: 'https://findd.com.my/include/img/user_dashboard/profile.png',
+            newAvatarUrl : ''
         };
     }
 
@@ -29,7 +30,7 @@ class ModalUpdateProfile extends Component {
             break;
             case "info" : this.setState({descriptionInput: event.target.value});
             break;
-            default : this.setState({avatarUrl: event.target.value});
+            default : this.setState({newAvatarUrl: event.target.value});
             break;
         }
     }
@@ -40,7 +41,7 @@ class ModalUpdateProfile extends Component {
             about: this.state.descriptionInput,
             aboutShort: `${this.state.descriptionInput.slice(0, 50)}...`,
             email: 'mail',
-            avatarUrl: this.state.avatarUrl
+            avatarUrl: this.state.newAvatarUrl.length > 0 ? this.state.newAvatarUrl : this.state.avatarUrl
         };
         userService.updateProfile(`http://bitbookapi.azurewebsites.net/api/Profiles`, obj)
             .then((data) => {
