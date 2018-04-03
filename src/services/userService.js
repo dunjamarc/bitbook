@@ -3,7 +3,7 @@ import UserDetail from '../entities/UserDetail'
 
 class userServices {
 
-    constructor(){
+    constructor() {
         this.headers = {
             'Content-Type': 'application/json',
             'Key': 'bitbook',
@@ -71,6 +71,23 @@ class userServices {
             headers: this.headers,
         })
     }
+
+    sendRegistrationData(data) {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/register`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: this.headers,
+        })
+    }
+
+    sendLoginData(data) {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/login`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: this.headers,
+        })
+    }
+
 }
 
 const userService = new userServices();
