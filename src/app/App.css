@@ -113,6 +113,18 @@ a {
   max-width: 670px;
 }
 
+
+ /* #feed-box {
+  overflow-y: scroll;
+  height: 85vh;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  
+}  */
+
 #login, #register {
   margin-top: 30px;
 }
@@ -120,3 +132,4 @@ a {
 .login {
   margin-top: 10%;
 }
+

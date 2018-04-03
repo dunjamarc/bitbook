@@ -13,6 +13,16 @@ import Footer from './partials/Footer';
 
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+
+		}
+	}
+
+	
+
+
 	render() {
 		return (
 			<React.Fragment>
