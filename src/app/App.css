@@ -112,3 +112,11 @@ a {
 .update-pic {
   max-width: 670px;
 }
+
+#login, #register {
+  margin-top: 30px;
+}
+
+.login {
+  margin-top: 10%;
+}
