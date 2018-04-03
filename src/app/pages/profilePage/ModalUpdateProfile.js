@@ -21,28 +21,17 @@ class ModalUpdateProfile extends Component {
         });
     }
 
-    handleImageChange = (event) => {
-        this.setState({
-            avatarUrl: event.target.value
-        })
-    }
-
-    handleNameChange = (event) => {
-        this.setState({
-            nameInput: event.target.value
-        })
-    }
-
-    handleDescriptionChange = (event) => {
-        this.setState({
-            descriptionInput: event.target.value
-        })
-    }
-
-    handleImgUrlChange = (event) => {
-        this.setState({
-            avatarUrl: event.target.value
-        })
+    handleChange = (event) => {
+        switch (event.target.name){
+            case "image" : this.setState({avatarUrl: event.target.value});
+            break;
+            case "fullName" : this.setState({nameInput: event.target.value});
+            break;
+            case "info" : this.setState({descriptionInput: event.target.value});
+            break;
+            default : this.setState({avatarUrl: event.target.value});
+            break;
+        }
     }
 
     handleClick = (event) => {
@@ -78,15 +67,15 @@ class ModalUpdateProfile extends Component {
                             <input type="file"/>
                         </div>
                         <div className="file-path-wrapper">
-                            <input className="file-path" type="text" onChange={this.handleImageChange}/>
+                            <input name="image" className="file-path" type="text" onChange={this.handleChange}/>
                         </div>
                     </div>
 
-                    <input type="text" placeholder="Image url" onChange={this.handleImgUrlChange} value={this.state.imageUrlInput} />
+                    <input name="imageUrl" type="text" placeholder="Image url" onChange={this.handleChange} value={this.state.imageUrlInput} />
 
-                    <input type="text" placeholder="Full Name" onChange={this.handleNameChange} value={this.state.nameInput} />
+                    <input name="fullName" type="text" placeholder="Full Name" onChange={this.handleChange} value={this.state.nameInput} />
 
-                    <textarea name="info" id="" cols="30" rows="10" placeholder="User description" onChange={this.handleDescriptionChange} value={this.state.descriptionInput}></textarea>
+                    <textarea name="info" id="" cols="30" rows="10" placeholder="User description" onChange={this.handleChange} value={this.state.descriptionInput}></textarea>
                 </div>
 
                 <div className="modal-footer">

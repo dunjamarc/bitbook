@@ -12,7 +12,7 @@ src/
 
 			welcomePage/
 				WelcomePage.js
-				LoginForm.js
+				LoginForm.js           - username/password
 				RegisterForm.js
 			feedPage/
 				FeedPage.js
@@ -32,7 +32,7 @@ src/
 				PeopleListItem.js      
 			profilePage/
 				ProfilePage.js         
-				ModalUpdateProfile.js  
+				ModalUpdateProfile.js  - image bug
 
 		partials/
 			Header.js                  
