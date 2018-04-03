@@ -13,8 +13,8 @@ class PostService {
         }
     }
 
-    allData() {
-        return fetch('http://bitbookapi.azurewebsites.net/api/Posts', {
+    allData(query) {
+        return fetch(`http://bitbookapi.azurewebsites.net/api/Posts${query}`, {
             headers: this.headers,
             method: 'GET'
         })

@@ -112,3 +112,14 @@ a {
 .update-pic {
   max-width: 670px;
 }
+
+ /* #feed-box {
+  overflow-y: scroll;
+  height: 85vh;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  
+}  */
