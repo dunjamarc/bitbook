@@ -72,22 +72,6 @@ class userServices {
         })
     }
 
-    sendRegistrationData(data) {
-        return fetch(`http://bitbookapi.azurewebsites.net/api/register`, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: this.headers,
-        })
-    }
-
-    sendLoginData(data) {
-        return fetch(`http://bitbookapi.azurewebsites.net/api/login`, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: this.headers,
-        })
-    }
-
 }
 
 const userService = new userServices();

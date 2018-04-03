@@ -32,7 +32,7 @@ src/
 				PeopleListItem.js      
 			profilePage/
 				ProfilePage.js         
-				ModalUpdateProfile.js  - image bug
+				ModalUpdateProfile.js  
 
 		partials/
 			Header.js                  
@@ -50,6 +50,7 @@ src/
 		postService.js
 		userService.js
 		commentService.js
+		authenticationService.js
 		
 	shared/
 
