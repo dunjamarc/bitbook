@@ -17,9 +17,7 @@ class LoginForm extends React.Component {
             password: this.state.password,
           }
         autoService.sendLoginData(dataObj)
-        .then(response => {
-            console.log(response);
-            
+        .then(response => {        
             sessionStorage.setItem('loginData', JSON.stringify(response));
         })
     }
