@@ -16,12 +16,11 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoggedIn: false
+			isLoggedIn: JSON.parse(sessionStorage.getItem('loginData'))
 		}
 	}
 
 	handleLogin = () => {
-
 		this.setState({
 			isLoggedIn: true
 		})
@@ -36,8 +35,8 @@ class App extends Component {
 					{this.state.isLoggedIn ?
 						<Switch>
 							<Route exact path='/feed' component={FeedPage} />
-							<Redirect exact from='/' to='/feed' />
 							<Redirect exact from='/login' to='/feed' />
+							<Redirect exact from='/' to='/feed' />
 							<Route exact path='/people' component={PeoplePage} />
 							<Route exact path='/profile' component={ProfilePage} />
 							<Route path='/people/:id' component={ProfilePage} />
@@ -46,8 +45,8 @@ class App extends Component {
 							<Route path='/feeds/video/:id' component={VideoPostPage} />
 						</Switch> :
 						<Switch>
-							<Route exact path='/login' render={() => <WelcomePage handleLogin={this.handleLogin} />} />
-							<Redirect exact from='/' to='/login' />
+							<Route  path='/login' render={() => <WelcomePage handleLogin={this.handleLogin} />} />
+							<Redirect from='/' to='/login' />
 						</Switch>}
 					<div id="push"></div>
 				</div>

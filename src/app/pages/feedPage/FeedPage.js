@@ -7,7 +7,7 @@ import postsData from '../../../services/postService';
 import Filter from './Filter.js';
 import M from "materialize-css";
 import Pagination from './Pagination';
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 class FeedPage extends Component {

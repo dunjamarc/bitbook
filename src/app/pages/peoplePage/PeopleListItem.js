@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PeopleListItem = (props) => {
-    let postDate = new Date(props.value.lastPostDate);
+    let postDate = new Date(props.value.lastPostDate + "z");
     return (
         <div className="col s12 m8 offset-m2 l6 offset-l3">
             <div className="card-panel grey lighten-5 z-depth-1">

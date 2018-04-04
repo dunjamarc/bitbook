@@ -7,13 +7,13 @@ class LoginForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: '', 
+            password: '',
             error: false
         }
     }
 
     login = () => {
-        
+
         let dataObj = {
             username: this.state.email,
             password: this.state.password,
@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
                 }
             })
 
+
     }
 
     handleChange = (event) => {
@@ -40,7 +41,7 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="row">
-            
+
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
