@@ -5,17 +5,20 @@ import TextPost from '../entities/TextPost'
 
 class PostService {
 
-    constructor() {
-        this.headers = {
+    generateHeaders() {
+        return {
             'Content-Type': 'application/json',
             'Key': 'C863071',
-            'SessionId': JSON.parse(sessionStorage.getItem('loginData')).sessionId
+            'SessionId': JSON.parse(sessionStorage.getItem('loginData'))
+            ? JSON.parse(sessionStorage.getItem('loginData')).sessionId
+            : ''
         }
     }
 
     allData(query) {
+        
         return fetch(`http://bitbookapi.azurewebsites.net/api/Posts${query}`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -40,7 +43,7 @@ class PostService {
 
     getTextPost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/TextPosts/${id}`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -57,7 +60,7 @@ class PostService {
 
     getImagePost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/ImagePosts/${id}`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -74,7 +77,7 @@ class PostService {
 
     getVideoPost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/VideoPosts/${id}`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -95,13 +98,13 @@ class PostService {
         return fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
-            headers: this.headers,
+            headers: this.generateHeaders(),
         })
     }
 
     deletePost(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/posts/${id}`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'DELETE'
         })
     }

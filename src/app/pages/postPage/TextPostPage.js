@@ -69,7 +69,7 @@ class TextPostPage extends Component {
     }
 
     previewComments = () => {
-        return commentService.getCommentByPostId(this.props.match.params.id).then((response) => {
+        return commentService.getCommentByPostId(this.props.match.params.id).then((response) => {           
             this.setState({
                 commentInfo: response
             })
@@ -80,7 +80,7 @@ class TextPostPage extends Component {
         return postsData.deletePost(this.props.match.params.id)
             .then(response => {
                 if (response) {
-                    window.location = '/feed'
+                    window.location.hash = '/feed'
                 }
             })
     }
@@ -122,7 +122,7 @@ class TextPostPage extends Component {
                         <div className="row">
                             {
                                 this.state.commentInfo.map((el, i) => {
-                                    return <CommentsListItem authorName={el.authorName} body={el.body} key={el.id} />
+                                    return <CommentsListItem authorName={el.authorName} authorId={el.authorId} body={el.body} key={el.id} />
                                 })
                             }
                         </div>

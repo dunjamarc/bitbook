@@ -30,7 +30,7 @@ class WelcomePage extends React.Component {
                             <li className="tab col s6"><a className="active" href="#loginUser">Login</a></li>
                             <li className="tab col s6"><a href="#registerUser">Register</a></li>
                         </ul>
-                        <div id="loginUser" className="col s12"><LoginForm /></div>
+                        <div id="loginUser" className="col s12"><LoginForm handleLogin={this.props.handleLogin}/></div>
                         <div id="registerUser" className="col s12"><RegisterForm /></div>
 
                     </div>
