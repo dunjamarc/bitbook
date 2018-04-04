@@ -7,6 +7,7 @@ import postsData from '../../../services/postService';
 import Filter from './Filter.js';
 import M from "materialize-css";
 import Pagination from './Pagination';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 class FeedPage extends Component {
@@ -28,14 +29,13 @@ class FeedPage extends Component {
         var elem = document.querySelector('.fixed-action-btn');
         M.FloatingActionButton.init(elem);
         this.fetchPosts();
-
     }
 
     fetchPosts = () => {
-        postsData.allData("")
+        postsData.allData('')
             .then(data => {
                 this.setState({
-                    allPosts: data.slice(0, 10),
+                    allPosts: data.slice(0, 5),
                     videoPosts: data.filter(el => {
                         return el.type === 'video';
                     }),
@@ -49,9 +49,6 @@ class FeedPage extends Component {
                 })
 
             })
-
-
-
             .catch(error => {
                 this.setState({
                     error: error.message
@@ -99,11 +96,7 @@ class FeedPage extends Component {
 
     // }
 
-
-
     render() {
-        //console.log(this.state.all);
-
         return (
             <React.Fragment>
                 {this.state.error
@@ -141,7 +134,28 @@ class FeedPage extends Component {
                                 </a></li>
                             </ul>
                         </div>
+                        
                         <Pagination value={this.state.pages} action={this.loadPage}/>
+                        {/* <InfiniteScroll
+                            pullDownToRefresh
+                            dataLength={10} //This is important field to render the next data
+                            pullDownToRefreshContent={
+                                <h3 style={{ textAlign: 'center' }}>&#8595; Pull down to refresh</h3>
+                            }
+                            releaseToRefreshContent={
+                                <h3 style={{ textAlign: 'center' }}>&#8593; Release to refresh</h3>
+                            }
+                            refreshFunction={this.scrollLoad}
+                            next={''}
+                            hasMore={true}
+                            loader={<h4>Loading...</h4>}
+                            endMessage={
+                                <p style={{ textAlign: 'center' }}>
+                                    <b>Yay! You have seen it all</b>
+                                </p>
+                            }>
+                            {this.state.allData}
+                        </InfiniteScroll> */}
                     </div>}
             </React.Fragment>
 

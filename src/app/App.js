@@ -16,11 +16,16 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-
+			isLoggedIn: false
 		}
 	}
 
-	
+	handleLogin = () => {
+
+		this.setState({
+			isLoggedIn: true
+		})
+	}
 
 
 	render() {
@@ -28,17 +33,22 @@ class App extends Component {
 			<React.Fragment>
 				<div id="wrapper">
 					<Header />
-					<Switch>
-						<Route exact path='/login' component={WelcomePage} />
-						<Route exact path='/feed' component={FeedPage} />
-						<Redirect exact from='/' to='/feed' />
-						<Route exact path='/people' component={PeoplePage} />
-						<Route exact path='/profile' component={ProfilePage} />
-						<Route path='/people/:id' component={ProfilePage} />
-						<Route path='/feeds/text/:id' component={TextPostPage} />
-						<Route path='/feeds/image/:id' component={ImagePostPage} />
-						<Route path='/feeds/video/:id' component={VideoPostPage} />
-					</Switch>
+					{this.state.isLoggedIn ?
+						<Switch>
+							<Route exact path='/feed' component={FeedPage} />
+							<Redirect exact from='/' to='/feed' />
+							<Redirect exact from='/login' to='/feed' />
+							<Route exact path='/people' component={PeoplePage} />
+							<Route exact path='/profile' component={ProfilePage} />
+							<Route path='/people/:id' component={ProfilePage} />
+							<Route path='/feeds/text/:id' component={TextPostPage} />
+							<Route path='/feeds/image/:id' component={ImagePostPage} />
+							<Route path='/feeds/video/:id' component={VideoPostPage} />
+						</Switch> :
+						<Switch>
+							<Route exact path='/login' render={() => <WelcomePage handleLogin={this.handleLogin} />} />
+							<Redirect exact from='/' to='/login' />
+						</Switch>}
 					<div id="push"></div>
 				</div>
 				<Footer />

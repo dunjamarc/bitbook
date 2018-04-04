@@ -3,17 +3,19 @@ import UserDetail from '../entities/UserDetail'
 
 class userServices {
 
-    constructor() {
-        this.headers = {
+    generateHeaders() {
+        return {
             'Content-Type': 'application/json',
             'Key': 'C863071',
-            'SessionId': JSON.parse(sessionStorage.getItem('loginData')).sessionId
+            'SessionId': JSON.parse(sessionStorage.getItem('loginData'))
+            ? JSON.parse(sessionStorage.getItem('loginData')).sessionId
+            : ''
         }
     }
 
     getUsers() {
         return fetch(`http://bitbookapi.azurewebsites.net/api/users`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -32,7 +34,7 @@ class userServices {
 
     getProfile() {
         return fetch(`http://bitbookapi.azurewebsites.net/api/profile`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -49,7 +51,7 @@ class userServices {
 
     getUserDetail(id) {
         return fetch(`http://bitbookapi.azurewebsites.net/api/users/${id}`, {
-            headers: this.headers,
+            headers: this.generateHeaders(),
             method: 'GET'
         })
             .then((response) => {
@@ -68,7 +70,7 @@ class userServices {
         return fetch(url, {
             method: 'PUT',
             body: JSON.stringify(data),
-            headers: this.headers,
+            headers: this.generateHeaders(),
         })
     }
 

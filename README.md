@@ -12,7 +12,7 @@ src/
 
 			welcomePage/
 				WelcomePage.js
-				LoginForm.js           - username/password
+				LoginForm.js           
 				RegisterForm.js
 			feedPage/
 				FeedPage.js

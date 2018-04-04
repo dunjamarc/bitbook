@@ -7,7 +7,9 @@ class commentsService extends Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'C863071',
-                'SessionId': JSON.parse(sessionStorage.getItem('loginData')).sessionId
+                'SessionId': JSON.parse(sessionStorage.getItem('loginData'))
+                    ? JSON.parse(sessionStorage.getItem('loginData')).sessionId
+                    : ''
             },
             method: 'GET'
         })
@@ -29,7 +31,9 @@ class commentsService extends Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'C863071',
-                'SessionId': JSON.parse(sessionStorage.getItem('loginData')).sessionId
+                'SessionId': JSON.parse(sessionStorage.getItem('loginData'))
+                    ? JSON.parse(sessionStorage.getItem('loginData')).sessionId
+                    : ''
             },
             method: 'POST',
             body: JSON.stringify({

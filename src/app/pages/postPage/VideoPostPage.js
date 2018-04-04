@@ -77,7 +77,7 @@ class VideoPostPage extends Component {
         return postsData.deletePost(this.props.match.params.id)
             .then(response => {
                 if (response) {
-                    window.location = '/'
+                    window.location.hash = '/feed'
                 }
             })
     }
