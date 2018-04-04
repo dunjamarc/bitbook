@@ -141,7 +141,7 @@ class FeedPage extends Component {
                                 </a></li>
                             </ul>
                         </div>
-                        {/* <Pagination value={this.state.pages} action={this.loadPage}/> */}
+                        <Pagination value={this.state.pages} action={this.loadPage}/>
                     </div>}
             </React.Fragment>
 
