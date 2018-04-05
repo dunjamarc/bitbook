@@ -122,7 +122,7 @@ class ImagePostPage extends Component {
                         <div className="row">
                             {
                                 this.state.commentInfo.map((el, i) => {
-                                    return <CommentsListItem authorName={el.authorName} body={el.body} key={el.id} />
+                                    return <CommentsListItem authorName={el.authorName} authorId={el.authorId} body={el.body} key={el.id} />
                                 })
                             }
                         </div>

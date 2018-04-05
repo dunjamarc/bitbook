@@ -121,7 +121,7 @@ class VideoPostPage extends Component {
                         <div className="row">
                             {
                                 this.state.commentInfo.map((el, i) => {
-                                    return <CommentsListItem authorName={el.authorName} body={el.body} key={el.id} />
+                                    return <CommentsListItem authorName={el.authorName} authorId={el.authorId} body={el.body} key={el.id} />
                                 })
                             }
                         </div>
@@ -130,94 +130,6 @@ class VideoPostPage extends Component {
         )
     }
 }
-
-
-
-// class VideoPostPage extends Component {
-
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             postInfo: {},
-//             commentInfo: [],
-//             commentText: '',
-//         }
-
-//     }
-
-//     componentDidMount() {
-
-//         postsData.getVideoPost(this.props.match.params.id)
-//             .then(data => {
-//                 this.setState({
-//                     postInfo: data
-//                 })
-//             })
-//         commentService.getCommentByPostId(this.props.match.params.id)
-//             .then((response) => {
-//                 this.setState({
-//                     commentInfo: response,
-//                 })
-//             })
-//     }
-//     commentBody = (event) => {
-//         this.setState({
-//             commentText: event.target.value
-//         })
-//     }
-
-//     sendComment = () => {
-//         commentService.postComment(this.props.match.params.id, this.state.commentText)
-//             .then(response => {
-//                 if (response) {
-//                     this.previewComments();
-//                     this.setState({
-//                         commentText: '',
-//                     })
-//                 }
-//             })
-//     }
-
-//     sendCommentOnEnter = (event) => {
-//         if (event.keyCode == 13) {
-//             commentService.postComment(this.props.match.params.id, this.state.commentText)
-//                 .then(response => {
-//                     if (response) {
-//                         this.previewComments();
-//                         this.setState({
-//                             commentText: '',
-//                         })
-//                     }
-//                 })
-//         }
-//     }
-
-//     previewComments = () => {
-//         return commentService.getCommentByPostId(this.props.match.params.id).then((response) => {
-//             this.setState({
-//                 commentInfo: response
-//             })
-//         })
-//     }
-
-//     render() {
-//         return (
-//             <div className="container">
-//                 <div className='col s12 m7'>
-//                     <div className="video-container">
-//                         <iframe width="853" height="480" src={this.state.postInfo.videoUrl} frameBorder="0" allowFullScreen allow="autoplay; encrypted-media"></iframe>
-//                     </div>
-//                 </div>
-//                 <div className="row">
-//                     <AddComment />
-//                 </div>
-//                 <CommentsListItem />
-//                 <CommentsListItem />
-//             </div>
-
-//         )
-//     }
-// }
 
 
 export default VideoPostPage;
