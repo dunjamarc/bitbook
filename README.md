@@ -26,13 +26,14 @@ src/
 				TextPostPage.js
 				ImagePostPage.js
 				VideoPostPage.js
-				CommentsListItem.js    - author img
+				CommentsListItem.js    
 			peoplePage/
 				PeoplePage.js
 				PeopleListItem.js      
 			profilePage/
 				ProfilePage.js         
 				ModalUpdateProfile.js  
+			requireAuth.js
 
 		partials/
 			Header.js                  

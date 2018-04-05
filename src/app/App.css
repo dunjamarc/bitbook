@@ -114,17 +114,6 @@ a {
 }
 
 
- /* #feed-box {
-  overflow-y: scroll;
-  height: 85vh;
-}
-
-body {
-  height: 100vh;
-  overflow: hidden;
-  
-}  */
-
 #login, #register {
   margin-top: 30px;
 }
@@ -132,6 +121,7 @@ body {
 .login {
   margin-top: 10%;
 }
+
 
 #modal-img {
   display: flex;
@@ -147,7 +137,6 @@ body {
   z-index: 1000;
 }
 
-
 #modal-img img {
   max-height: 80vh;
   max-width: 80vw;
@@ -158,4 +147,12 @@ body {
   border-radius: 15px;
 }
 
+.comment-pic {
+  max-height: 70px;
+  width: auto;
+}
+
+.logout {
+  margin-top: 40px;
+}
 

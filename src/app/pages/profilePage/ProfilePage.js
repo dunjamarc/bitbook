@@ -57,6 +57,11 @@ class ProfilePage extends Component {
         }
     }
 
+    logout = (event) => {
+        sessionStorage.removeItem('loginData');
+        this.props.history.push('/')
+    }
+
     render() {
         return (
 
@@ -79,7 +84,9 @@ class ProfilePage extends Component {
                         <div className="chip">
                             <img src="https://www.shareicon.net/data/512x512/2017/02/09/878601_check_512x512.png" alt="Contact Person" />
                             {this.state.profile.commentsCount} Comments
-                            </div>
+                            </div><br/>
+                            {this.state.myProfile ? <input type="button" className="btn logout" onClick={this.logout} value="Logout"/> : ''}
+
                     </div>
                 </React.Fragment>
 
