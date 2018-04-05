@@ -114,22 +114,16 @@ a {
 }
 
 
- /* #feed-box {
-  overflow-y: scroll;
-  height: 85vh;
-}
-
-body {
-  height: 100vh;
-  overflow: hidden;
-  
-}  */
-
 #login, #register {
   margin-top: 30px;
 }
 
 .login {
   margin-top: 10%;
+}
+
+.comment-pic {
+  max-height: 70px;
+  width: auto;
 }
 
