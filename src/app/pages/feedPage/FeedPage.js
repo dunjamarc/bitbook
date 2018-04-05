@@ -7,7 +7,6 @@ import postsData from '../../../services/postService';
 import Filter from './Filter.js';
 import M from "materialize-css";
 import Pagination from './Pagination';
-// import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 class FeedPage extends Component {
@@ -29,6 +28,11 @@ class FeedPage extends Component {
         var elem = document.querySelector('.fixed-action-btn');
         M.FloatingActionButton.init(elem);
         this.fetchPosts();
+        window.addEventListener('scroll', this.scrollLoad);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.scrollLoad);
     }
 
     fetchPosts = () => {
@@ -86,22 +90,21 @@ class FeedPage extends Component {
             })
     }
 
-    // scrollLoad = () => {
-    //     let feedBox = document.querySelector('#feed-box');
-    //     if (feedBox.scrollTop === (feedBox.scrollHeight - feedBox.clientHeight)) {
-    //         ++this.counter;
-    //         this.loadPage(`?$top=${10 * this.counter}`);
+    scrollLoad = () => {        
+        let feedBox = document.querySelector('html');
+        if (feedBox.scrollTop === (feedBox.scrollHeight - feedBox.clientHeight)) {
+            ++this.counter;
+            this.loadPage(`?$top=${10 * this.counter}&$orderby=DateCreated desc`);
 
-    //     }
-
-    // }
+        }   
+    }
 
     render() {
         return (
             <React.Fragment>
                 {this.state.error
                     ? <p className="error-message">{this.state.error}</p>
-                    : <div id="feed-box" onScroll={this.scrollLoad}><Filter value={this.handleChange} />
+                    : <div id="feed-box"><Filter value={this.handleChange} />
                         <div className="container">
                             {this.state.allPosts.map(el => {
                                 if (el.type === 'video') {
@@ -134,28 +137,8 @@ class FeedPage extends Component {
                                 </a></li>
                             </ul>
                         </div>
-                        
-                        <Pagination value={this.state.pages} action={this.loadPage}/>
-                        {/* <InfiniteScroll
-                            pullDownToRefresh
-                            dataLength={10} //This is important field to render the next data
-                            pullDownToRefreshContent={
-                                <h3 style={{ textAlign: 'center' }}>&#8595; Pull down to refresh</h3>
-                            }
-                            releaseToRefreshContent={
-                                <h3 style={{ textAlign: 'center' }}>&#8593; Release to refresh</h3>
-                            }
-                            refreshFunction={this.scrollLoad}
-                            next={''}
-                            hasMore={true}
-                            loader={<h4>Loading...</h4>}
-                            endMessage={
-                                <p style={{ textAlign: 'center' }}>
-                                    <b>Yay! You have seen it all</b>
-                                </p>
-                            }>
-                            {this.state.allData}
-                        </InfiniteScroll> */}
+
+                        {/* <Pagination value={this.state.pages} action={this.loadPage} /> */}
                     </div>}
             </React.Fragment>
 
