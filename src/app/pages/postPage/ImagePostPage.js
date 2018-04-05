@@ -17,7 +17,6 @@ class ImagePostPage extends Component {
     }
 
     componentDidMount() {
-
         postsData.getImagePost(this.props.match.params.id)
             .then(data => {
                 this.setState({
@@ -84,9 +83,6 @@ class ImagePostPage extends Component {
             })
     }
 
-
-
-
     render() {
         return (
 
@@ -122,7 +118,9 @@ class ImagePostPage extends Component {
                         <div className="row">
                             {
                                 this.state.commentInfo.map((el, i) => {
+
                                     return <CommentsListItem authorName={el.authorName} authorId={el.authorId} body={el.body} key={el.id} />
+
                                 })
                             }
                         </div>
