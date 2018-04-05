@@ -6,6 +6,7 @@ export const  requireAuth = (ComposedComponent) => {
         componentDidMount() {
             if (!JSON.parse(sessionStorage.getItem('loginData'))) {
                 this.props.history.push('/login')
+                
             }
         }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import autoService from '../../../services/authenticationService.js';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+
 
 class LoginForm extends React.Component {
 
@@ -20,9 +21,7 @@ class LoginForm extends React.Component {
             password: this.state.password,
         }
         autoService.sendLoginData(dataObj)
-            .then(response => {
-                console.log(response);
-                
+            .then(response => {                
                 if (!response.error) {
                     sessionStorage.setItem('loginData', JSON.stringify(response));
                     this.props.history.push('/')
@@ -61,7 +60,9 @@ class LoginForm extends React.Component {
                     {this.state.error ? <p className="error">{this.state.error}</p> : ''}
                     <input type="button" className="btn" onClick={this.login} value="Login"/>
                 </form>
+
             </div>
+
         )
     }
 }
