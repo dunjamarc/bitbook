@@ -19,7 +19,8 @@ class FeedPage extends Component {
             textPosts: [],
             imagePosts: [],
             error: false,
-            pages: []
+            pages: [],
+            modalInstance: ""
         };
         this.counter = 1;
     }
@@ -27,6 +28,15 @@ class FeedPage extends Component {
     componentDidMount() {
         var elem = document.querySelector('.fixed-action-btn');
         M.FloatingActionButton.init(elem);
+       
+        // var elem = document.querySelectorAll('.modal1');
+        // console.log(elem)
+        // var instance = M.Modal.init(elem);
+        // console.log(instance)
+        // this.setState({
+        //     modalInstance: instance
+        // })
+        
         this.fetchPosts();
         window.addEventListener('scroll', this.scrollLoad);
     }

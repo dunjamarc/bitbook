@@ -86,6 +86,7 @@ class TextPostPage extends Component {
     }
 
     render() {
+        console.log(this.state.commentInfo)
         return (
             <React.Fragment>
                 {this.state.error
