@@ -6,7 +6,7 @@ import ModalNewPost from './ModalNewPost';
 import postsData from '../../../services/postService';
 import Filter from './Filter.js';
 import M from "materialize-css";
-import Pagination from './Pagination';
+// import Pagination from './Pagination';
 
 
 class FeedPage extends Component {
