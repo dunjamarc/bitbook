@@ -13,18 +13,6 @@ import Footer from './partials/Footer';
 import { requireAuth } from './pages/requireAuth'
 
 class App extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		isLoggedIn: JSON.parse(sessionStorage.getItem('loginData'))
-	// 	}
-	// }
-
-	// handleLogin = () => {
-	// 	this.setState({
-	// 		isLoggedIn: true
-	// 	})
-	// }
 
 
 	render() {
@@ -36,13 +24,13 @@ class App extends Component {
 					<Switch>
 						<Route exact path='/' component={requireAuth(FeedPage)} />
 						<Route exact path='/feed' component={requireAuth(FeedPage)} />
-						<Route exact path='/people' component={PeoplePage} />
-						<Route exact path='/profile' component={ProfilePage} />
-						<Route path='/people/:id' component={ProfilePage} />
-						<Route path='/feeds/text/:id' component={TextPostPage} />
-						<Route path='/feeds/image/:id' component={ImagePostPage} />
-						<Route path='/feeds/video/:id' component={VideoPostPage} />
-						<Route exact path='/login' component={WelcomePage}/>} />
+						<Route exact path='/people' component={requireAuth(PeoplePage)} />
+						<Route exact path='/profile' component={requireAuth(ProfilePage)} />
+						<Route path='/people/:id' component={requireAuth(ProfilePage)} />
+						<Route path='/feeds/text/:id' component={requireAuth(TextPostPage)} />
+						<Route path='/feeds/image/:id' component={requireAuth(ImagePostPage)} />
+						<Route path='/feeds/video/:id' component={requireAuth(VideoPostPage)} />
+						<Route exact path='/login' component={WelcomePage} />
 					</Switch>
 					<div id="push"></div>
 				</div>

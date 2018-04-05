@@ -8,7 +8,8 @@ class RegisterForm extends React.Component {
         this.state = {
             password: '',
             name: '',
-            email: ''
+            email: '',
+            error: false
         }
     }
 
@@ -19,8 +20,12 @@ class RegisterForm extends React.Component {
             name: this.state.name,
             email: this.state.email
           }
-        autoService.sendRegistrationData(dataObj)
-
+        
+        if(!this.state.name || !this.state.email || !this.state.password){
+            this.setState({error: '* All fields are required'});  
+        } else {
+            autoService.sendRegistrationData(dataObj);
+        }
     }
 
     handleChange = (event) => {
@@ -55,6 +60,7 @@ class RegisterForm extends React.Component {
                         <div className="input-field col s12">
                             <input id="password-reg" type="password" className="validate" value={this.state.password} onChange={this.handleChange}/>
                             <label htmlFor="password-reg">Password</label>
+                            {this.state.error ? <p className="error">{this.state.error}</p> : ''}
                         </div>
                     </div>
                     <button className="btn" onClick={this.register}>Register</button>
