@@ -3,7 +3,6 @@
 
 After signing up and setting their profile with basic info, a user can create text, image or video posts, and leave comments.
 
-Demo: [Bitbook](https://dunjamarc.github.io/bitbook)
 
 ## Installation
 
