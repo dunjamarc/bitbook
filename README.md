@@ -3,6 +3,9 @@
 
 After signing up and setting their profile with basic info, a user can create text, image or video posts, and leave comments.
 
+![](screenshots/profile.jpg)
+![](screenshots/people.jpg)
+![](screenshots/newpost.jpg)
 
 ## Installation
 
