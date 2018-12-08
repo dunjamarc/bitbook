@@ -13,6 +13,7 @@ After signing up and setting their profile with basic info, a user can create te
 npm install
 npm start
 ```
+update: API used for this project development purpose is now disabled
 
 ## Project structure
 
